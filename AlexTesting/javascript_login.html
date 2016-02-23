@@ -1,67 +1,231 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Javascript Login Form Validation</title>
+		<title>Bootstrap Example</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- Include CSS File Here -->
-		<link rel="stylesheet" href="css/style.css"/>
-		<!-- Include JS File Here -->
-		<script src="js/login.js"></script>
-		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-		<script src="/jquery/jquery-2.2.0.min.js"></script>
-		<script src="/bootstrap/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<script src="jquery/jquery-2.2.0.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
+		<script src="d3\liquidfill/liquidFillGauge.js" language="JavaScript"></script>
+		<style>
+			.liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
+		</style>
 	</head>
 	<body>
-		<div class="container">
-			<div class="main">
-				<h2>Javascript Login Form Validation</h2>
-				<form id="form_id" method="post" name="myform">
-					<label>User Name :</label>
-					<input type="text" name="username" id="username"/>
-					<label>Password :</label>
-					<input type="password" name="password" id="password"/>
-					<input type="button" value="Login" id="submit" onclick="validate()"/>
-				</form>
-				<span><b class="note">Note : </b>
-				For this demo use following username and password. <br/>
-				<b class="valid">User Name : Formget<br/>Password : formget#123</b></span>
-			</div>
+		<div class="container-fluid">
+			<h1>Hello World!</h1>
+			<p>Resize the browser window to see the effect.</p>
 			<div class="row">
-				<div class="col-sm-4" style="background-color:lavender;">
-					.col-sm-4
+				<div class="col-sm-3">
+					<div class="panel-group">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								Panel with panel-default class
+							</div>
+							<div class="panel-body">
+								<svg id="fillgauge1" width="55%" height="40%" onclick="gauge1.update(NewValue());"></svg>
+								<svg id="fillgauge2" width="55%" height="40%" onclick="gauge2.update(NewValue());"></svg>
+								<svg id="fillgauge3" width="55%" height="40%" onclick="gauge3.update(NewValue());"></svg>
+								<script language="JavaScript">
+									var config1 = liquidFillGaugeDefaultSettings();
+									config1.circleColor = "#0099FF";
+									config1.textColor = "#0055AA";
+									config1.waveTextColor = "#55DDFF";
+									config1.waveColor = "#0099FF";
+									config1.circleThickness = 0.025;
+									config1.textVertPosition = 0.55;
+									config1.waveAnimateTime = 1000;
+									config1.waveHeight = 0.05;
+									config1.waveAnimate = true;
+									config1.waveRise = false;
+									config1.waveHeightScaling = false;
+									config1.waveOffset = 0.25;
+									config1.textSize = 0.75;
+									config1.waveCount = 3;
+									config1.displayPercent = false;
+									var gauge1 = loadLiquidFillGauge("fillgauge1", 55, config1);
+									
+									var config2 = liquidFillGaugeDefaultSettings();
+									config2.circleColor = "#00CCFF";
+									config2.textColor = "#0077CC";
+									config2.waveTextColor = "#0099DD";
+									config2.waveColor = "#00CCFF";
+									config2.circleThickness = 0.05;
+									config2.textVertPosition = 0.8;
+									config2.waveAnimateTime = 2000;
+									config2.textVertPosition = 0.2;
+									config2.waveHeight = 0.3;
+									config2.waveCount = 1;
+									config2.displayPercent = false;
+									var gauge2= loadLiquidFillGauge("fillgauge2", 28, config2);
+
+									var config3 = liquidFillGaugeDefaultSettings();
+									config3.circleThickness = 0.075;
+									config3.textVertPosition = 0.8;
+									config3.waveAnimateTime = 5000;
+									config3.waveHeight = 0.15;
+									config3.textVertPosition = 0.6;
+									config3.waveOffset = 0.25;
+									config3.valueCountUp = false;
+									config3.displayPercent = false;
+									var gauge3 = loadLiquidFillGauge("fillgauge3", 60.1, config3);
+
+									function NewValue(){
+										if(Math.random() > .5){
+											return Math.round(Math.random()*100);
+										} else {
+											return (Math.random()*100).toFixed(1);
+										}
+									}
+								</script>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="col-sm-4" style="background-color:lavenderblush;">
-					.col-sm-4
-				</div>
-				<div class="col-sm-4" style="background-color:lavender;">
-					.col-sm-4
+				<div class="col-sm-9" style="background-color:lavenderblush;">
+					<ul class="nav nav-tabs">
+						<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+						<li><a data-toggle="tab" href="#graph">Graph</a></li>
+						<li><a data-toggle="tab" href="#table">Table</a></li>
+						<li><a data-toggle="tab" href="#map">Map</a></li>
+					</ul>
+
+					<div class="panel panel-primary">
+						<div class="panel-body">
+							<div class="tab-content">
+								<div id="home" class="tab-pane fade in active">
+									<ul class="nav nav-tabs">
+										<li class="active"><a data-toggle="tab" href="#homeday">Day</a></li>
+										<li><a data-toggle="tab" href="#homeweek">Week</a></li>
+										<li><a data-toggle="tab" href="#homemonth">Month</a></li>
+									</ul>
+									<div class="panel panel-primary">
+										<div class="panel-body">
+											<div class="tab-content">
+												<div id="homeday" class="tab-pane fade in active">
+													<ul class="nav nav-tabs">
+														<li class="active"><a data-toggle="tab" href="#homedayday">Per Day</a></li>
+														<li><a data-toggle="tab" href="#homedayyear">Year to Date</a></li>
+													</ul>
+													<div class="panel panel-primary">
+														<div class="panel-body">
+														</div>
+													</div>
+												</div>
+
+												<div id="homeweek" class="tab-pane fade">
+													<ul class="nav nav-tabs">
+														<li class="active"><a data-toggle="tab" href="#homeweekweek">Per Week</a></li>
+														<li><a data-toggle="tab" href="#homeweekyear">Year to Date</a></li>
+													</ul>
+													<div class="panel panel-primary">
+														<div class="panel-body">
+														</div>
+													</div>
+												</div>
+
+												<div id="homemonth" class="tab-pane fade">
+													<ul class="nav nav-tabs">
+														<li class="active"><a data-toggle="tab" href="#dayperweek">Per Day</a></li>
+														<li><a data-toggle="tab" href="#dayyeartodate">Year to Date</a></li>
+													</ul>
+													<div class="panel panel-primary">
+														<div class="panel-body">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div id="graph" class="tab-pane fade">
+									<ul class="nav nav-tabs">
+										<li class="active"><a data-toggle="tab" href="#graphday">Day</a></li>
+										<li><a data-toggle="tab" href="#graphweek">Week</a></li>
+										<li><a data-toggle="tab" href="#graphmonth">Month</a></li>
+									</ul>
+									<div class="panel panel-primary">
+										<div class="panel-body">
+											<div class="tab-content">
+												<div id="graphday" class="tab-pane fade in active">
+													<ul class="nav nav-tabs">
+														<li class="active"><a data-toggle="tab" href="#graphdayday">Per Day</a></li>
+														<li><a data-toggle="tab" href="#graphdayyear">Year to Date</a></li>
+													</ul>
+													<div class="panel panel-primary">
+														<div class="panel-body">
+														</div>
+													</div>
+												</div>
+
+												<div id="graphweek" class="tab-pane fade">
+													<ul class="nav nav-tabs">
+														<li class="active"><a data-toggle="tab" href="#graphweekweek">Per Week</a></li>
+														<li><a data-toggle="tab" href="#graphweekyear">Year to Date</a></li>
+													</ul>
+													<div class="panel panel-primary">
+														<div class="panel-body">
+														</div>
+													</div>
+												</div>
+
+												<div id="graphmonth" class="tab-pane fade">
+													<ul class="nav nav-tabs">
+														<li class="active"><a data-toggle="tab" href="#graphmonthmonth">Per Month</a></li>
+														<li><a data-toggle="tab" href="#graphmonthyear">Year to Date</a></li>
+													</ul>
+													<div class="panel panel-primary">
+														<div class="panel-body">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div id="table" class="tab-pane fade">
+									<ul class="nav nav-tabs">
+										<li class="active"><a data-toggle="tab" href="#tableday">Day</a></li>
+										<li><a data-toggle="tab" href="#tableweek">Week</a></li>
+										<li><a data-toggle="tab" href="#tablemonth">Month</a></li>
+									</ul>
+									<div class="panel panel-primary">
+										<div class="panel-body">
+										</div>
+									</div>
+								</div>
+
+								<div id="map" class="tab-pane fade">
+									<ul class="nav nav-tabs">
+										<li class="active"><a data-toggle="tab" href="#mapday">Day</a></li>
+										<li><a data-toggle="tab" href="#mapweek">Week</a></li>
+										<li><a data-toggle="tab" href="#mapmonth">Month</a></li>
+									</ul>
+									<div class="panel panel-primary">
+										<div class="panel-body">
+											<div id="graphday" class="tab-pane fade">
+												<ul class="nav nav-tabs">
+													<li class="active"><a data-toggle="tab" href="#dayperweek">Per Day</a></li>
+													<li><a data-toggle="tab" href="#dayyeartodate">Year to Date</a></li>
+												</ul>
+												<div class="panel panel-primary">
+													<div class="panel-body">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
 				</div>
 			</div>
-				<div class="table-responsive">
-					<table class="table">
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Firstname</th>
-							<th>Lastname</th>
-							<th>Age</th>
-							<th>City</th>
-							<th>Country</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td>Anna</td>
-							<td>Pitt</td>
-							<td>35</td>
-							<td>New York</td>
-							<td>USA</td>
-						</tr>
-					</tbody>
-					</table>
-				</div>
 		</div>
 	</body>
 </html>
