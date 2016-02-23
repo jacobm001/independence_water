@@ -18,16 +18,18 @@
 			<h1>Hello World!</h1>
 			<p>Resize the browser window to see the effect.</p>
 			<div class="row">
-				<div class="col-sm-3">
+				<div class="col-sm-4">
 					<div class="panel-group">
 						<div class="panel panel-primary">
 							<div class="panel-heading">
 								Panel with panel-default class
 							</div>
 							<div class="panel-body">
-								<svg id="fillgauge1" width="55%" height="40%" onclick="gauge1.update(NewValue());"></svg>
-								<svg id="fillgauge2" width="55%" height="40%" onclick="gauge2.update(NewValue());"></svg>
-								<svg id="fillgauge3" width="55%" height="40%" onclick="gauge3.update(NewValue());"></svg>
+								<svg id="fillgauge1" width="200" onclick="gauge1.update(NewValue());"></svg>
+								<br/>
+								<svg id="fillgauge2" width="200" onclick="gauge2.update(NewValue());"></svg>
+								<br/>
+								<svg id="fillgauge3" width="200" onclick="gauge3.update(NewValue());"></svg>
 								<script language="JavaScript">
 									var config1 = liquidFillGaugeDefaultSettings();
 									config1.circleColor = "#0099FF";
@@ -84,7 +86,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-9" style="background-color:lavenderblush;">
+				<div class="col-sm-8" style="background-color:lavenderblush;">
 					<ul class="nav nav-tabs">
 						<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
 						<li><a data-toggle="tab" href="#graph">Graph</a></li>
