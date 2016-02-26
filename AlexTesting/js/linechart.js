@@ -38,7 +38,7 @@ function loadBarChart(elementId, config) {
 			.x(function(d) { return x(d.date); })
 			.y(function(d) { return y(d.close); });
 
-	var svg = d3.select("#" + elementId).append("svg")
+	var lchart = d3.select("#" + elementId).append("svg")
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom)
 		.append("g")
@@ -50,12 +50,12 @@ function loadBarChart(elementId, config) {
 		x.domain(d3.extent(data, function(d) { return d.date; }));
 		y.domain(d3.extent(data, function(d) { return d.close; }));
 
-		svg.append("g")
+		lchart.append("g")
 				.attr("class", "x axis")
 				.attr("transform", "translate(0," + height + ")")
 				.call(xAxis);
 
-		svg.append("g")
+		lchart.append("g")
 				.attr("class", "y axis")
 				.call(yAxis)
 			.append("text")
@@ -65,7 +65,7 @@ function loadBarChart(elementId, config) {
 				.style("text-anchor", "end")
 				.text("Price ($)");
 
-		svg.append("path")
+		lchart.append("path")
 				.datum(data)
 				.attr("class", "line")
 				.attr("d", line);

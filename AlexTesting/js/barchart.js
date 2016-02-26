@@ -33,7 +33,7 @@ function loadBarChart(elementId, config) {
 			.orient("left")
 			.ticks(10, "%");
 
-	var svg = d3.select("#" + elementId).append("svg")
+	var bar = d3.select("#" + elementId).append("svg")
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom)
 		.append("g")
@@ -45,12 +45,12 @@ function loadBarChart(elementId, config) {
 		x.domain(data.map(function(d) { return d.letter; }));
 		y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
 
-		svg.append("g")
+		bar.append("g")
 				.attr("class", "x axis")
 				.attr("transform", "translate(0," + height + ")")
 				.call(xAxis);
 
-		svg.append("g")
+		bar.append("g")
 				.attr("class", "y axis")
 				.call(yAxis)
 			.append("text")
@@ -60,7 +60,7 @@ function loadBarChart(elementId, config) {
 				.style("text-anchor", "end")
 				.text("Frequency");
 
-		svg.selectAll(".bar")
+		bar.selectAll(".bar")
 				.data(data)
 			.enter().append("rect")
 				.attr("class", "bar")
