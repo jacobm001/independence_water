@@ -1,2 +1,9 @@
-var lineconfig1 = barChartDefaultSettings();
-var line1 = loadLineChart("linechart1", lineconfig1);
+var lineconfigday = barChartDefaultSettings();
+var lineday = loadLineChart("linechartday", lineconfigday);
+
+var lineconfigweek = barChartDefaultSettings();
+var lineweek = loadLineChart("linechartweek", lineconfigweek);
+
+var lineconfigmonth = barChartDefaultSettings();
+var linemonth = loadLineChart("linechartmonth", lineconfigmonth);
+
