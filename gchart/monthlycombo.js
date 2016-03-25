@@ -47,6 +47,6 @@ function drawVisualization() {
 		series: {1: {type: 'line'}}
 	};
 
-	var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+	var barchartmonth = new google.visualization.ComboChart(document.getElementById('barchartmonth'));
 	chart.draw(data, options);
 }

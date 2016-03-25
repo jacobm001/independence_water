@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Project Abzu</title>
+		<title>Abzu: Water Visualization</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
@@ -9,9 +9,11 @@
 		<script src="bootstrap/js/bootstrap.js"></script>
 		<script src="d3/d3.js" language="JavaScript"></script>
 		<script src="d3/liquidfill/liquidFillGauge.js" language="JavaScript"></script>
-		<script src="js/barchart.js" language="JavaScript"></script>
-		<script src="js/linechart.js" language="JavaScript"></script>
+	<!--	<script src="js/barchart.js" language="JavaScript"></script> -->
+	<!--	<script src="js/linechart.js" language="JavaScript"></script> -->
 		<script src="https://www.gstatic.com/charts/loader.js" language="JavaScript"></script>
+	<!--	<script type="text/javascript" src="gchart/multicombo.js"></script> -->
+		<script type="text/javascript" src="js/allcharts.js"></script>
 		<style>
 			.liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
 
@@ -42,9 +44,8 @@
 		</style>
 	</head>
 	<body>
-		<div class="container-fluid">
-			<h1>Hello World!</h1>
-			<p>Resize the browser window to see the effect.</p>
+		<div class="container">
+			<h1>City of Independence Water Use</h1>
 			<div class="row">
 				<div class="col-sm-4 col-md-3">
 					<div class="panel-group">
@@ -80,75 +81,13 @@
 						<div class="panel-body">
 							<div class="tab-content">
 								<div id="home" class="tab-pane fade in active">
-									<ul class="nav nav-tabs">
-										<li class="active"><a data-toggle="tab" href="#homeday">Day</a></li>
-										<li><a data-toggle="tab" href="#homeweek">Week</a></li>
-										<li><a data-toggle="tab" href="#homemonth">Month</a></li>
-									</ul>
 									<div class="panel panel-primary">
-										<div class="panel-body">
-											<div class="tab-content">
-												<div id="homeday" class="tab-pane fade in active">
-													<ul class="nav nav-tabs">
-														<li class="active"><a data-toggle="tab" href="#homedayday">Per Day</a></li>
-														<li><a data-toggle="tab" href="#homedayyear">Year to Date</a></li>
-													</ul>
-													<div class="panel panel-primary">
-														<div class="panel-body">
-															<div class="tab-content">
-																<div id="homedayday" class="tab-pane fade in active">
-																	test day
-																	<div id="chart_div" style="width: 100%; height: 100%;"></div>
-																	<script type="text/javascript" src="gchart/combo.js"></script>
-																</div>
-
-																<div id="homedayyear" class="tab-pane fade">
-																	test year
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-
-												<div id="homeweek" class="tab-pane fade">
-													<ul class="nav nav-tabs">
-														<li class="active"><a data-toggle="tab" href="#homeweekweek">Per Week</a></li>
-														<li><a data-toggle="tab" href="#homeweekyear">Year to Date</a></li>
-													</ul>
-													<div class="panel panel-primary">
-														<div class="panel-body">
-															<div class="tab-content">
-																<div id="homeweekweek" class="tab-pane fade in active">
-																	test week
-																</div>
-
-																<div id="homeweekyear" class="tab-pane fade">
-																	test year
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-
-												<div id="homemonth" class="tab-pane fade">
-													<ul class="nav nav-tabs">
-														<li class="active"><a data-toggle="tab" href="#homemonthmonth">Per Month</a></li>
-														<li><a data-toggle="tab" href="#homemonthyear">Year to Date</a></li>
-													</ul>
-													<div class="panel panel-primary">
-														<div class="panel-body">
-															<div class="tab-content">
-																<div id="homemonthmonth" class="tab-pane fade in active">
-																	test month
-																</div>
-
-																<div id="homemonthyear" class="tab-pane fade">
-																	test year
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
+										<div id="announcements" class="tab-pane fade in active">
+											<div class="panel-heading">
+												Announcements
+											</div>
+											<div class="panel-body">
+												This is a sample announcement.
 											</div>
 										</div>
 									</div>
@@ -172,14 +111,13 @@
 														<div class="panel-body">
 															<div class="tab-content">
 																<div id="graphdayday" class="tab-pane fade in active">
-																	test day
-																	<svg id="barchartday" width="960" height="500"></svg>
+																<!--	<div id="chart_div" style="width: 100%; height: 100%;"></div> -->
+																	<div id="barchartday" style="border: 1px solid #ccc"></div>
 																</div>
 
 																<div id="graphdayyear" class="tab-pane fade">
-																	test year
-																	<svg id="linechartday" width="960" height="500"></svg>
-																	<script src="js/lc.js" language="JavaScript"></script>
+																	<div id="linechartday" style="border: 1px solid #ccc"></div>
+																<!--	<script src="js/lc.js" language="JavaScript"></script> -->
 																</div>
 															</div>
 														</div>
@@ -195,13 +133,11 @@
 														<div class="panel-body">
 															<div class="tab-content">
 																<div id="graphweekweek" class="tab-pane fade in active">
-																	test week
-																	<svg id="barchartweek" width="960" height="500"></svg>
+																	<div id="barchartweek" style="border: 1px solid #ccc"></div>
 																</div>
 
 																<div id="graphweekyear" class="tab-pane fade">
-																	test year
-																	<svg id="linechartweek" width="960" height="500"></svg>
+																	<div id="linechartweek" style="border: 1px solid #ccc"></div>
 																</div>
 															</div>
 														</div>
@@ -217,13 +153,11 @@
 														<div class="panel-body">
 															<div class="tab-content">
 																<div id="graphmonthmonth" class="tab-pane fade in active">
-																	test month
-																	<svg id="barchartmonth" width="960" height="500"></svg>
+																	<div id="barchartmonth" style="border: 1px solid #ccc"></div>
 																</div>
 
 																<div id="graphmonthyear" class="tab-pane fade">
-																	test year
-																	<svg id="linechartyear" width="960" height="500"></svg>
+																	<div id="linechartmonth" style="border: 1px solid #ccc"></div>
 																</div>
 															</div>
 														</div>
@@ -234,8 +168,8 @@
 									</div>
 								</div>
 
-								<script src="js/bc.js" language="JavaScript"></script>
-								<script src="js/lc.js" language="JavaScript"></script>
+								<!-- <script src="js/bc.js" language="JavaScript"></script> -->
+								<!-- <script src="js/lc.js" language="JavaScript"></script> -->
 
 								<div id="table" class="tab-pane fade">
 									<ul class="nav nav-tabs">
@@ -247,15 +181,15 @@
 										<div class="panel-body">
 											<div class="tab-content">
 												<div id="tableday" class="tab-pane fade in active">
-													test day
+													<div id="daytable"></div>
 												</div>
 
 												<div id="tableweek" class="tab-pane fade">
-													test week
+													<div id="weektable"></div>
 												</div>
 
 												<div id="tablemonth" class="tab-pane fade">
-													test month
+													<div id="monthtable"></div>
 												</div>
 											</div>
 										</div>
