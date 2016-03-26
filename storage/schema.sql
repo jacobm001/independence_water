@@ -4,3 +4,5 @@ create table if not exists meter_read (
 	value integer not null,
 	time_read date not null
 );
+
+create index if not exists meter_read_sorted on meter_read(meter_id,time_read);
