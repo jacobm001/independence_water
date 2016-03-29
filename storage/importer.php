@@ -27,8 +27,11 @@
 					$read = substr($read[0], 2);
 
 				preg_match('/Time: .+/', $line, $time);
-				if(!empty($read))
+				if(!empty($read)) {
 					$time = substr($time[0], 6);
+					$time = strtotime($time);
+					$time = date('d-m-Y H:i',$time);
+				}
 
 				if( $read != null and $time != null)
 					$stmt->execute(array($meter, $read, $time));
