@@ -34,7 +34,7 @@
 					if(!empty($read)) {
 						$time = substr($time[0], 6);
 						$time = strtotime($time);
-						$time = date('d-m-Y H:i',$time)
+						$time = date('Y-m-d H:i',$time);
 					}
 
 					if($read != null and $time != null)
