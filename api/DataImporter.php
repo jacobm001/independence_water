@@ -4,19 +4,20 @@
 		private $db;
 		private $contents;
 
-		public __construct(&$db, $contents)
+		public function __construct(&$db, $contents)
 		{
 			$this->db = $db;
 			$this->contents = $contents;
+			$this->submit_file();
 		}
 
-		public submit_file()
+		public function submit_file()
 		{
 			$sql  = 'insert into meter_read(meter_id,value,time_read) values(?,?,?)';
-			$stmt = $db->prepare($sql);
+			$stmt = $this->db->prepare($sql);
 
 			$line_number = 0;
-			$lines = explode('\n', $this->contents);
+			$lines = explode("\n", $this->contents);
 
 			foreach($lines as $line) 
 			{
@@ -34,7 +35,7 @@
 					if(!empty($read)) {
 						$time = substr($time[0], 6);
 						$time = strtotime($time);
-						$time = date('d-m-Y H:i',$time)
+						$time = date('Y-m-d H:i',$time);
 					}
 
 					if($read != null and $time != null)
