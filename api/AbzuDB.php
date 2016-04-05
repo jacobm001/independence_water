@@ -3,7 +3,7 @@
 	{
 		private $db;
 		
-		public __constructor(&$db)
+		public function __constructor(&$db)
 		{
 			$this->db = $db;
 		}
