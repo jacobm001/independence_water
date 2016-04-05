@@ -1,4 +1,4 @@
-RewriteEngine One
+RewriteEngine On
 RewriteBase /abzu/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
