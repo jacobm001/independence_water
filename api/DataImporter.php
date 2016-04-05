@@ -4,13 +4,13 @@
 		private $db;
 		private $contents;
 
-		public __construct(&$db, $contents)
+		public function __construct(&$db, $contents)
 		{
 			$this->db = $db;
 			$this->contents = $contents;
 		}
 
-		public submit_file()
+		public function submit_file()
 		{
 			$sql  = 'insert into meter_read(meter_id,value,time_read) values(?,?,?)';
 			$stmt = $db->prepare($sql);
