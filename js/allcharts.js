@@ -32,8 +32,8 @@ function drawDayChart() {
 	var data = new google.visualization.DataTable();
 	data.addColumn('string', 'Date');
 	data.addColumn('number', 'Daily Use');
-	data.addColumn('number', 'Daily Average for Febuary');
-	data.addColumn('number', 'Daily Average for Year');
+	data.addColumn('number', 'Daily Average\nfor Febuary');
+	data.addColumn('number', 'Daily Average\nfor Year');
 	data.addRows([
 		['2/1/2016',24,24,11.625],
 		['2/2/2016',17,20.5,11.78787879],
@@ -71,9 +71,11 @@ function drawDayChart() {
 								width:700,
 								height:400,
 								vAxis: {title: 'Water Use'},
+								hAxis: {slantedText:true, slantedTextAngle:70},
 								seriesType:'line',
 								series: {0: {type: 'bars'}},
-								legend: { position: 'bottom' }
+								legend: { position: 'right', textStyle: {fontSize: 10 }, maxLines: 6, alignment: 'center'},
+								chartArea: {}
 	};
 
 	// Instantiate and draw the chart for Sarah's pizza.
@@ -150,9 +152,10 @@ function drawWeeklyChart() {
 								width:700,
 								height:400,
 								vAxis: {title: 'Water Use'},
+								hAxis: {slantedText:true, slantedTextAngle:70},
 								seriesType:'bars',
 								series: {1: {type: 'line'}},
-								legend: { position: 'bottom' }
+								legend: { position: 'right', textStyle: {fontSize: 10 }, maxLines: 6, alignment: 'center'},
 	};
 
 	// Instantiate and draw the chart for Sarah's pizza.
@@ -188,9 +191,10 @@ function drawMonthChart() {
 								width:700,
 								height:400,
 								vAxis: {title: 'Water Use'},
+								hAxis: {slantedText:true, slantedTextAngle:70},
 								seriesType:'bars',
 								series: {1: {type: 'line'}},
-								legend: { position: 'bottom' }
+								legend: { position: 'right', textStyle: {fontSize: 10 }, maxLines: 6, alignment: 'center'},
 	};
 
 	// Instantiate and draw the chart for Sarah's pizza.
@@ -242,8 +246,9 @@ function drawDayTotalChart() {
 								width:700,
 								height:400,
 								vAxis: {title: 'Water Use'},
+								hAxis: {slantedText:true, slantedTextAngle:70},
 								seriesType:'line',
-								legend: { position: 'bottom' }
+								legend: { position: 'right', textStyle: {fontSize: 10 }, maxLines: 6, alignment: 'center'},
 	};
 
 	// Instantiate and draw the chart for Sarah's pizza.
@@ -319,8 +324,9 @@ function drawWeekTotalChart() {
 								width:700,
 								height:400,
 								vAxis: {title: 'Water Use'},
+								hAxis: {slantedText:true, slantedTextAngle:70},
 								seriesType:'line',
-								legend: { position: 'bottom' }
+								legend: { position: 'right', textStyle: {fontSize: 10 }, maxLines: 6, alignment: 'center'},
 	};
 
 	// Instantiate and draw the chart for Sarah's pizza.
@@ -355,8 +361,9 @@ function drawMonthTotalChart() {
 								width:700,
 								height:400,
 								vAxis: {title: 'Water Use'},
+								hAxis: {slantedText:true, slantedTextAngle:70},
 								seriesType:'line',
-								legend: { position: 'bottom' }
+								legend: { position: 'right', textStyle: {fontSize: 10 }, maxLines: 6, alignment: 'center'},
 	};
 
 	// Instantiate and draw the chart for Sarah's pizza.
