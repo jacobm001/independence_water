@@ -10,8 +10,9 @@
 		$db->exec($db_create_sql);
 	}
 
-	$objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator("."));
+	$objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator("./historical_data"));
 	$Regex   = new RegexIterator($objects, '/^.+\.txt$/i', RecursiveRegexIterator::GET_MATCH);
+	
 	foreach($Regex as $name => $object) {
 		echo "Importing file: " . $name . "\n";
 		new DataImporter($db, file_get_contents($name));
