@@ -6,11 +6,11 @@
 	
 	$route = new Route();
 	
-	route->add('read/day');
-	route->add('read/week');
-	route->add('read/month');
-	route->add('read/year');
+	$route->add('read/day');
+	$route->add('read/week');
+	$route->add('read/month');
+	$route->add('read/year');
 	
-	route->submit();
+	$route->submit();
 	echo test;
 ?>
