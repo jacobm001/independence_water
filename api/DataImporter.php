@@ -8,15 +8,16 @@
 		{
 			$this->db = $db;
 			$this->contents = $contents;
+			$this->submit_file();
 		}
 
 		public function submit_file()
 		{
 			$sql  = 'insert into meter_read(meter_id,value,time_read) values(?,?,?)';
-			$stmt = $db->prepare($sql);
+			$stmt = $this->db->prepare($sql);
 
 			$line_number = 0;
-			$lines = explode('\n', $this->contents);
+			$lines = explode("\n", $this->contents);
 
 			foreach($lines as $line) 
 			{
