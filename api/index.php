@@ -12,5 +12,4 @@
 	$route->add('read/year');
 	
 	$route->submit();
-	echo test;
 ?>
