@@ -3,6 +3,10 @@
 	$GLOBALS['storage_directory']  = '../storage';
 	$GLOBALS['database_path'] = $GLOBALS['storage_directory'] . '/data.db';
 
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL); 
+
 	// Ensure datbase exists
 	// See 
 	if(file_exists($GLOBALS['database_path'])) {
