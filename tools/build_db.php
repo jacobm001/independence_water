@@ -1,14 +1,7 @@
 #!/usr/bin/php
 <?php
+	include "../api/Init.php";
 	include "../api/DataImporter.php";
-
-	if(file_exists("../storage/data.db")) {
-		$db = new PDO("sqlite:../storage/data.db");
-	} else {
-		$db            = new PDO("sqlite:../storage/data.db");
-		$db_create_sql = file_get_contents("../storage/schema.sql");
-		$db->exec($db_create_sql);
-	}
 
 	$objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator("./historical_data"));
 	$Regex   = new RegexIterator($objects, '/^.+\.txt$/i', RecursiveRegexIterator::GET_MATCH);
