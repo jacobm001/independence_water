@@ -5,8 +5,8 @@
 		private $qry_meter_group;
 		private $valid_intervals = [
 			"day",
-			"month",
 			"week",
+			"month",
 			"year"
 		];
 		
@@ -31,6 +31,7 @@
 			{
 				case 'hour':  return '%Y-%m-%d %H';
 				case 'day':   return '%Y-%m-%d';
+				case 'week':  return '%Y-$W';
 				case 'month': return '%Y-%m';
 				case 'year':  return '%Y';
 			}
