@@ -4,6 +4,7 @@
 		private $db;
 		private $qry_meter_group;
 		private $valid_intervals = [
+			"hour",
 			"day",
 			"week",
 			"month",
