@@ -1,0 +1,1 @@
+insert into meter_read(`meter_id`,`value`,`time_read`) values(:meter_id,:value,:time_read);

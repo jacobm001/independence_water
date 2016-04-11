@@ -3,6 +3,7 @@
 	{
 		private $db;
 		private $contents;
+		private $meter_id;
 
 		public function __construct(&$db, $contents)
 		{
@@ -11,7 +12,7 @@
 			$this->submit_file();
 		}
 
-		public function submit_file()
+		private function submit_file()
 		{
 			$sql  = 'insert into meter_read(meter_id,value,time_read) values(?,?,?)';
 			$stmt = $this->db->prepare($sql);
@@ -23,7 +24,7 @@
 			{
 				if($line_number == 0) {
 					preg_match('/[0-9]+/', $line, $meter);
-					$meter = $meter[0];
+					$this->meter_id = $meter[0];
 				}
 
 				else if($line_number >= 8) {
@@ -39,11 +40,16 @@
 					}
 
 					if($read != null and $time != null)
-						$stmt->execute(array($meter, $read, $time));
+						$stmt->execute(array($this->meter_id, $read, $time));
 				}
 
 				$line_number++;
 			}
+		}
+
+		public function get_meter_id()
+		{
+			return $this->meter_id;
 		}
 	}
 ?>
