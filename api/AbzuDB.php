@@ -2,8 +2,10 @@
 	class AbzuDB
 	{
 		private $db;
+		
 		private $qry_meter_read_sm;
 		private $qry_meter_read_lg;
+		private $qry_meter_insert;
 
 		private $valid_intervals = [
 			// "hour",
@@ -19,6 +21,7 @@
 
 			$this->qry_meter_read_sm = file_get_contents("../api/queries/get_meter_read_sm.sql");
 			$this->qry_meter_read_lg = file_get_contents("../api/queries/get_meter_read_lg.sql");
+			$this->qry_meter_insert  = file_get_contents("../api/queries/insert_meter_data.sql");
 		}
 
 		private function validate_interval($interval)
@@ -95,6 +98,30 @@
 
 			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			return $this->clean_return_data($result);
+		}
+
+		private function verify_timestamp($timestamp)
+		{
+			try {
+				$t = new DateTime($timestamp);
+			}
+			catch (Exception $e) {
+				die("unsupported date format\n");
+			}
+
+			return $t->format('Y-m-d H:i');
+		}
+
+		public function insert_meter_data($meter, $value, $timestamp)
+		{
+			$stmt = $this->db->prepare($this->qry_meter_insert);
+			$t    = $this->verify_timestamp($timestamp);
+			
+			$stmt->bindParam(':meter_id',  $meter);
+			$stmt->bindParam(':value',     $value);
+			$stmt->bindParam(':time_read', $t);
+
+			$stmt->execute();
 		}
 	}
 ?>
