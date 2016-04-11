@@ -64,7 +64,13 @@
 
 		private function clean_return_data($result)
 		{
-			
+			$ret = "timestamp,value\n";
+			foreach($result as $row) {
+				$ret .= $row["timestamp"] . "," . $row["value"] . "\n";
+			}
+
+			print_r($ret);
+			return $ret;
 		}
 		
 		public function get_meter_data($meter, $interval) 
@@ -75,8 +81,6 @@
 			$dec_value       = $this->decrement_value($interval);
 			
 			$query_option = $this->choose_query($interval);
-			
-			echo "Using query: " . $query_option . "\n";
 
 			if($query_option == 'sm') {
 				$stmt = $this->db->prepare($this->qry_meter_read_sm);
@@ -90,7 +94,7 @@
 			$stmt->bindParam(':meter_id', $meter, PDO::PARAM_INT);
 			$stmt->execute();
 
-			$result = $stmt->fetchAll();
+			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			return $this->clean_return_data($result);
 		}
 	}
