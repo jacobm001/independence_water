@@ -4,5 +4,5 @@
 	require "../api/AbzuDB.php";
 
 	$AbzuDB = new AbzuDB($db);
-	$AbzuDB->get_meter_data("7030264", "month");
+	$AbzuDB->get_meter_data("7813517", "week");
 ?>
