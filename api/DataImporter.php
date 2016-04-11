@@ -12,7 +12,7 @@
 			$this->submit_file();
 		}
 
-		public function submit_file()
+		private function submit_file()
 		{
 			$sql  = 'insert into meter_read(meter_id,value,time_read) values(?,?,?)';
 			$stmt = $this->db->prepare($sql);

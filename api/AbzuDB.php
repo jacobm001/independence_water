@@ -123,5 +123,15 @@
 
 			$stmt->execute();
 		}
+
+		public function load_historical_data($f)
+		{
+			try {
+				new DataImporter($this->db, $f);
+			}
+			catch (Exception $e) {
+				die("bad import file");
+			}
+		}
 	}
 ?>
