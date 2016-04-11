@@ -1,4 +1,4 @@
-create table if not exists meter_read (
+create table if not exists meter_readmeter_readmeter_read (
 	read_id integer primary key autoincrement,
 	meter_id integer not null,
 	value integer not null,
