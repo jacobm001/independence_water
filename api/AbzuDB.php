@@ -69,7 +69,6 @@
 				$ret .= $row["timestamp"] . "," . $row["value"] . "\n";
 			}
 
-			print_r($ret);
 			return $ret;
 		}
 		
