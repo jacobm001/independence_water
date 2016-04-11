@@ -1,6 +1,21 @@
+create table if not exists users (
+	user_id  integer primary key autoincrement,
+	username text not null,
+	password text not null,
+	name     text
+);
+
 create table if not exists meter_info (
 	meter_id integer primary key,
 	address  text not null
+);
+
+create table if not exists user_owns (
+	id       integer primary key autoincrement,
+	user_id  integer not null,
+	meter_id integer not null,
+	foreign key(user_id)  references users(user_id),
+	foreign key(meter_id) references users(meter_id)
 );
 
 create table if not exists meter_read (
