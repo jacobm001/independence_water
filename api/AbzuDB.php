@@ -28,6 +28,7 @@
 			$this->qry_meter_insert  = file_get_contents("../api/queries/insert_meter_data.sql");
 			$this->qry_city_avg_sm   = file_get_contents("../api/queries/get_city_avg_sm.sql");
 			$this->qry_city_avg_lg   = file_get_contents("../api/queries/get_city_avg_lg.sql");
+			$this->qry_guage_to_date = file_get_contents("../api/queries/get_gauge_to_date.sql");
 		}
 
 		private function validate_interval($interval)
@@ -106,7 +107,7 @@
 			return $this->clean_return_data($result);
 		}
 
-		public function get_meter_avg_data($interval) 
+		public function get_city_avg_data($interval) 
 		{
 			$this->validate_interval($interval);
 			
@@ -128,6 +129,11 @@
 
 			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			return $this->clean_return_data($result);
+		}
+
+		public function get_gauge_to_date($meter, $interval, $period)
+		{
+
 		}
 
 		private function verify_timestamp($timestamp)
