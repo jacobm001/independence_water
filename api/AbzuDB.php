@@ -3,6 +3,7 @@
 	{
 		private $db;
 		
+		private $qry_meter_ids;
 		private $qry_meter_read_sm;
 		private $qry_meter_read_lg;
 		private $qry_meter_insert;
@@ -19,6 +20,7 @@
 		{
 			$this->db = $db;
 
+			$this->qry_meter_ids     = file_get_contents("../api/queries/get_meter_ids.sql");
 			$this->qry_meter_read_sm = file_get_contents("../api/queries/get_meter_read_sm.sql");
 			$this->qry_meter_read_lg = file_get_contents("../api/queries/get_meter_read_lg.sql");
 			$this->qry_meter_insert  = file_get_contents("../api/queries/insert_meter_data.sql");
