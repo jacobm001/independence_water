@@ -133,7 +133,16 @@
 
 		public function get_gauge_to_date($meter, $interval, $period)
 		{
+			$this->validate_interval($interval);
 
+			$interval_format = $this->interval_format($interval);
+
+			$stmt = $this->db->prepare($this->qry_guage_to_date);
+			$stmt->bindParam(':tformat', $interval_format);
+			$stmt->bindParam(':period', $period);
+
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+			return $return["value"];
 		}
 
 		private function verify_timestamp($timestamp)
