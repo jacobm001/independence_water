@@ -18,67 +18,57 @@
 		public function submit()
 		{
 			$params = explode("/", $uriGetParam);
+			$db_api = new AbzuDB();
 			
 			if ($params[0] == "api"){
 				if ($params[2] == "daychart"){
-					//api call
+					echo $db_api->get_meter_data($params[1], "day");
 				}
 				if ($params[2] == "weekchart"){
-					//api call
+					echo $db_api->get_meter_data($params[1], "week");
 				}
 				if ($params[2] == "monthchart"){
-					//api call
+					echo $db_api->get_meter_data($params[1], "month");
 				}
 				if ($params[2] == "daytotalchart"){
-					//api call
+					echo $db_api->get_meter_data($params[1], "day");
 				}
 				if ($params[2] == "weektotalchart"){
-					//api call
+					echo $db_api->get_meter_data($params[1], "week");
 				}
 				if ($params[2] == "monthtotalchart"){
-					//api call
+					echo $db_api->get_meter_data($params[1], "month");
 				}
 				if ($params[2] == "daytable"){
-					//api call
+					echo $db_api->get_meter_data($params[1], "day");
 				}
 				if ($params[2] == "weektable"){
-					//api call
+					echo $db_api->get_meter_data($params[1], "week");
 				}
 				if ($params[2] == "monthtable"){
-					//api call
+					echo $db_api->get_meter_data($params[1], "month");
 				}
 				if ($params[2] == "dayaverage"){
-					//api call
+					echo $db_api->get_meter_data($params[1], "day");
 				}
 				if ($params[2] == "monthtodate"){
-					//api call
+					echo $db_api->get_meter_data($params[1], "month");
 				}
 				if ($params[2] == "yeartodate"){
-					//api call
+					echo $db_api->get_meter_data($params[1], "year");
 				}
 				if ($params[2] == "daycityaverage"){
-					//api call
+					echo $db_api->get_meter_data($params[1], "day");
 				}
 				if ($params[2] == "weekcityaverage"){
-					//api call
+					echo $db_api->get_meter_data($params[1], "week");
 				}
 				if ($params[2] == "monthcityaverage"){
-					//api call
+					echo $db_api->get_meter_data($params[1], "month");
 				}
+			} else {
+				echo "Invalid route";
 			}
-			$AbzuDB->get_meter_data(:meter_id, :increment)
-			$AbzuDB->insert_meter_data(:meter_id, :value, :timestamp)
-			$AbzuDB->load_historical_data(:file_contents)
-			// echo $uriGetParam = isset($_GET['uri']) ? '/' . $_GET['uri'] : '/';
-		
-			// foreach ($this->_uri as $key => $value)
-			// {
-				// if (preg_match("#$^value$#", $uriGetParam))
-				// {
-					// $useMethod = $this->_method[$key];
-					// new $useMethod;
-				// }
-			// }
 		}
 	}
 	?>
