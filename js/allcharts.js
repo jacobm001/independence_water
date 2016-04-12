@@ -36,7 +36,7 @@ var jsonData = $.ajax({
 // Callback that draws the combo chart for daily use when Charts is loaded.
 function drawDayChart() {
 /*	
-	// Create the data table for Sarah's pizza.
+	// Create the data table for Daily combo chart.
 	var data = new google.visualization.DataTable();
 	data.addColumn('string', 'Date');
 	data.addColumn('number', 'Daily Use');
@@ -82,29 +82,49 @@ function drawDayChart() {
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
 		// CAPACITY - En-route ATFM delay - YY - CHART
-		var crt_ertdlyYY = new google.visualization.ChartWrapper({
-			chartType: 'LineChart',
-			containerId: 'crt_ertdlyYY',
+		var crt_day = new google.visualization.ChartWrapper({
+			chartType: 'ComboChart',
+		//	containerId: 'crt_day',
+			containerId: document.getElementById('barchartday'),
 			dataTable: data,
 			options:{
-				width: 450, height: 160,
-				title: 'EU-wide en-route ATFM delays (year to date)',
-				titleTextStyle : {color: 'grey', fontSize: 11},
+				title:'Febuary Water Use',
+				width:700,
+				height:400,
+				vAxis: {title: 'Water Use'},
+				hAxis: {slantedText:true, slantedTextAngle:70},
+				seriesType:'line',
+				series: {0: {type: 'bars'}},
+				legend: { position: 'right', textStyle: {fontSize: 10 }, maxLines: 6, alignment: 'center'},
+				chartArea: {}
 			}
 		});
-		crt_ertdlyYY.draw();
-	});
+		crt_day.draw();
+/*
+		var options = {title:'Febuary Water Use',
+									width:700,
+									height:400,
+									vAxis: {title: 'Water Use'},
+									hAxis: {slantedText:true, slantedTextAngle:70},
+									seriesType:'line',
+									series: {0: {type: 'bars'}},
+									legend: { position: 'right', textStyle: {fontSize: 10 }, maxLines: 6, alignment: 'center'},
+									chartArea: {}
+		};
+		var chart = new google.visualization.ComboChart(document.getElementById('barchartday'));
+		chart.draw(data, options);
+*/	});
 /*
 	var jsonData = $.ajax({
 		url: "getData.php",
 		dataType: "json",
 		async: false
 		}).responseText;
-*/
+
 	// Create our data table out of JSON data loaded from server.
 	var data = new google.visualization.DataTable(jsonData);
 
-	// Set options for Anthony's pie chart.
+	// Set options for Daily combo chart.
 	var options = {title:'Febuary Water Use',
 								width:700,
 								height:400,
@@ -119,12 +139,13 @@ function drawDayChart() {
 	// Instantiate and draw the chart for Sarah's pizza.
 	var chart = new google.visualization.ComboChart(document.getElementById('barchartday'));
 	chart.draw(data, options);
+*/
 }
 
 // Callback that draws the combo chart for weekly use when Charts is loaded.
 function drawWeeklyChart() {
 /*
-	// Create the data table for Sarah's pizza.
+	// Create the data table for Weekly combo chart.
 	var data = new google.visualization.DataTable();
 	data.addColumn('string', 'Date');
 	data.addColumn('number', 'Weekly Total');
@@ -192,17 +213,23 @@ function drawWeeklyChart() {
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
 		// CAPACITY - En-route ATFM delay - YY - CHART
-		var crt_ertdlyYY = new google.visualization.ChartWrapper({
-			chartType: 'LineChart',
-			containerId: 'crt_ertdlyYY',
+		var crt_week = new google.visualization.ChartWrapper({
+			chartType: 'ComboChart',
+		//	containerId: 'crt_week',
+			containerId: document.getElementById('barchartweek'),
 			dataTable: data,
 			options:{
-				width: 450, height: 160,
-				title: 'EU-wide en-route ATFM delays (year to date)',
-				titleTextStyle : {color: 'grey', fontSize: 11},
+				title:'2016 Weekly Water Use',
+				width:700,
+				height:400,
+				vAxis: {title: 'Water Use'},
+				hAxis: {slantedText:true, slantedTextAngle:70},
+				seriesType:'bars',
+				series: {1: {type: 'line'}},
+				legend: { position: 'right', textStyle: {fontSize: 10 }, maxLines: 6, alignment: 'center'},
 			}
 		});
-		crt_ertdlyYY.draw();
+		crt_week.draw();
 	});
 /*
 	var jsonData = $.ajax({
@@ -210,11 +237,11 @@ function drawWeeklyChart() {
 		dataType: "json",
 		async: false
 		}).responseText;
-*/
+
 	// Create our data table out of JSON data loaded from server.
 	var data = new google.visualization.DataTable(jsonData);
 
-	// Set options for Anthony's pie chart.
+	// Set options for Weekly combo chart.
 	var options = {title:'2016 Weekly Water Use',
 								width:700,
 								height:400,
@@ -228,12 +255,13 @@ function drawWeeklyChart() {
 	// Instantiate and draw the chart for Sarah's pizza.
 	var chart = new google.visualization.ComboChart(document.getElementById('barchartweek'));
 	chart.draw(data, options);
+*/
 }
 
 // Callback that draws the combo chart for monthly use when Charts is loaded.
 function drawMonthChart() {
 /*
-	// Create the data table for Sarah's pizza.
+	// Create the data table for Monthly combo chart.
 	var data = new google.visualization.DataTable();
 	data.addColumn('string', 'Date');
 	data.addColumn('number', 'Monthly Use');
@@ -260,17 +288,23 @@ function drawMonthChart() {
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
 		// CAPACITY - En-route ATFM delay - YY - CHART
-		var crt_ertdlyYY = new google.visualization.ChartWrapper({
-			chartType: 'LineChart',
-			containerId: 'crt_ertdlyYY',
+		var crt_month = new google.visualization.ChartWrapper({
+			chartType: 'ComboChart',
+		//	containerId: 'crt_month',
+			containerId: document.getElementById('barchartmonth'),
 			dataTable: data,
 			options:{
-				width: 450, height: 160,
-				title: 'EU-wide en-route ATFM delays (year to date)',
-				titleTextStyle : {color: 'grey', fontSize: 11},
+				title:'2016 Monthly Water Use',
+				width:700,
+				height:400,
+				vAxis: {title: 'Water Use'},
+				hAxis: {slantedText:true, slantedTextAngle:70},
+				seriesType:'bars',
+				series: {1: {type: 'line'}},
+				legend: { position: 'right', textStyle: {fontSize: 10 }, maxLines: 6, alignment: 'center'},
 			}
 		});
-		crt_ertdlyYY.draw();
+		crt_month.draw();
 	});
 /*
 	var jsonData = $.ajax({
@@ -278,11 +312,11 @@ function drawMonthChart() {
 		dataType: "json",
 		async: false
 		}).responseText;
-*/
+
 	// Create our data table out of JSON data loaded from server.
 	var data = new google.visualization.DataTable(jsonData);
 
-	// Set options for Anthony's pie chart.
+	// Set options for Monthly combo chart.
 	var options = {title:'2016 Monthly Water Use',
 								width:700,
 								height:400,
@@ -296,12 +330,13 @@ function drawMonthChart() {
 	// Instantiate and draw the chart for Sarah's pizza.
 	var chart = new google.visualization.ComboChart(document.getElementById('barchartmonth'));
 	chart.draw(data, options);
+*/
 }
 
 // Callback that draws the combo chart for monthly use when Charts is loaded.
 function drawDayTotalChart() {
 /*
-	// Create the data table for Sarah's pizza.
+	// Create the data table for Daily total chart.
 	var data = new google.visualization.DataTable();
 	data.addColumn('string', 'Date');
 	data.addColumn('number', 'Daily Total');
@@ -344,9 +379,10 @@ function drawDayTotalChart() {
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
 		// CAPACITY - En-route ATFM delay - YY - CHART
-		var crt_ertdlyYY = new google.visualization.ChartWrapper({
-			chartType: 'LineChart',
-			containerId: 'crt_ertdlyYY',
+		var crt_daytotal = new google.visualization.ChartWrapper({
+			chartType: 'ComboChart',
+		//	containerId: 'crt_daytotal',
+			containerId: document.getElementById('linechartday'),
 			dataTable: data,
 			options:{
 				width: 450, height: 160,
@@ -354,7 +390,7 @@ function drawDayTotalChart() {
 				titleTextStyle : {color: 'grey', fontSize: 11},
 			}
 		});
-		crt_ertdlyYY.draw();
+		crt_daytotal.draw();
 	});
 /*
 	var jsonData = $.ajax({
@@ -362,11 +398,11 @@ function drawDayTotalChart() {
 		dataType: "json",
 		async: false
 		}).responseText;
-*/
+
 	// Create our data table out of JSON data loaded from server.
 	var data = new google.visualization.DataTable(jsonData);
 
-	// Set options for Anthony's pie chart.
+	// Set options for Daily total chart.
 	var options = {title:'Febuary Daily Total Water Use',
 								width:700,
 								height:400,
@@ -379,12 +415,13 @@ function drawDayTotalChart() {
 	// Instantiate and draw the chart for Sarah's pizza.
 	var chart = new google.visualization.ComboChart(document.getElementById('linechartday'));
 	chart.draw(data, options);
+*/
 }
 
 // Callback that draws the combo chart for monthly use when Charts is loaded.
 function drawWeekTotalChart() {
 /*
-	// Create the data table for Sarah's pizza.
+	// Create the data table for Weekly total chart.
 	var data = new google.visualization.DataTable();
 	data.addColumn('string', 'Date');
 	data.addColumn('number', 'Use to Date');
@@ -451,9 +488,10 @@ function drawWeekTotalChart() {
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
 		// CAPACITY - En-route ATFM delay - YY - CHART
-		var crt_ertdlyYY = new google.visualization.ChartWrapper({
-			chartType: 'LineChart',
-			containerId: 'crt_ertdlyYY',
+		var crt_weektotal = new google.visualization.ChartWrapper({
+			chartType: 'ComboChart',
+		//	containerId: 'crt_weektotal',
+			containerId: document.getElementById('linechartweek'),
 			dataTable: data,
 			options:{
 				width: 450, height: 160,
@@ -461,7 +499,7 @@ function drawWeekTotalChart() {
 				titleTextStyle : {color: 'grey', fontSize: 11},
 			}
 		});
-		crt_ertdlyYY.draw();
+		crt_weektotal.draw();
 	});
 /*
 	var jsonData = $.ajax({
@@ -469,11 +507,11 @@ function drawWeekTotalChart() {
 		dataType: "json",
 		async: false
 		}).responseText;
-*/
+
 	// Create our data table out of JSON data loaded from server.
 	var data = new google.visualization.DataTable(jsonData);
 
-	// Set options for Anthony's pie chart.
+	// Set options for Weekly total chart.
 	var options = {title:'2016 Weekly Total Water Use',
 								width:700,
 								height:400,
@@ -486,12 +524,13 @@ function drawWeekTotalChart() {
 	// Instantiate and draw the chart for Sarah's pizza.
 	var chart = new google.visualization.ComboChart(document.getElementById('linechartweek'));
 	chart.draw(data, options);
+*/
 }
 
 // Callback that draws the combo chart for monthly use when Charts is loaded.
 function drawMonthTotalChart() {
 /*
-	// Create the data table for Sarah's pizza.
+	// Create the data table for Monthly total chart.
 	var data = new google.visualization.DataTable();
 	data.addColumn('string', 'Date');
 	data.addColumn('number', 'Use to Date');
@@ -517,9 +556,10 @@ function drawMonthTotalChart() {
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
 		// CAPACITY - En-route ATFM delay - YY - CHART
-		var crt_ertdlyYY = new google.visualization.ChartWrapper({
-			chartType: 'LineChart',
-			containerId: 'crt_ertdlyYY',
+		var crt_monthtotal = new google.visualization.ChartWrapper({
+			chartType: 'ComboChart',
+		//	containerId: 'crt_monthtotal',
+			containerId: document.getElementById('linechartmonth'),
 			dataTable: data,
 			options:{
 				width: 450, height: 160,
@@ -527,7 +567,7 @@ function drawMonthTotalChart() {
 				titleTextStyle : {color: 'grey', fontSize: 11},
 			}
 		});
-		crt_ertdlyYY.draw();
+		crt_monthtotal.draw();
 	});
 /*
 	var jsonData = $.ajax({
@@ -535,11 +575,11 @@ function drawMonthTotalChart() {
 		dataType: "json",
 		async: false
 		}).responseText;
-*/
+
 	// Create our data table out of JSON data loaded from server.
 	var data = new google.visualization.DataTable(jsonData);
 
-	// Set options for Anthony's pie chart.
+	// Set options for Monthly total chart.
 	var options = {title:'2016 Monthly Total Water Use',
 								width:700,
 								height:400,
@@ -552,6 +592,7 @@ function drawMonthTotalChart() {
 	// Instantiate and draw the chart for Sarah's pizza.
 	var chart = new google.visualization.ComboChart(document.getElementById('linechartmonth'));
 	chart.draw(data, options);
+*/
 }
 
 function drawDayTable() {
@@ -602,17 +643,17 @@ function drawDayTable() {
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
 		// CAPACITY - En-route ATFM delay - YY - CHART
-		var crt_ertdlyYY = new google.visualization.ChartWrapper({
-			chartType: 'LineChart',
-			containerId: 'crt_ertdlyYY',
+		var crt_daytable = new google.visualization.ChartWrapper({
+			chartType: 'Table',
+		//	containerId: 'crt_daytable',
+			containerId: document.getElementById('daytable'),
 			dataTable: data,
 			options:{
-				width: 450, height: 160,
-				title: 'EU-wide en-route ATFM delays (year to date)',
-				titleTextStyle : {color: 'grey', fontSize: 11},
-			}
+				showRowNumber: true,
+				width: '100%',
+				height: '100%'			}
 		});
-		crt_ertdlyYY.draw();
+		crt_daytable.draw();
 	});
 /*
 	var jsonData = $.ajax({
@@ -620,7 +661,7 @@ function drawDayTable() {
 		dataType: "json",
 		async: false
 		}).responseText;
-*/
+
 	// Create our data table out of JSON data loaded from server.
 	var data = new google.visualization.DataTable(jsonData);
 
@@ -629,6 +670,7 @@ function drawDayTable() {
 	table.draw(data, {showRowNumber: true,
 						width: '100%',
 						height: '100%'});
+*/
 }
 
 function drawWeekTable() {
@@ -701,17 +743,18 @@ function drawWeekTable() {
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
 		// CAPACITY - En-route ATFM delay - YY - CHART
-		var crt_ertdlyYY = new google.visualization.ChartWrapper({
-			chartType: 'LineChart',
-			containerId: 'crt_ertdlyYY',
+		var crt_weektable = new google.visualization.ChartWrapper({
+			chartType: 'Table',
+		//	containerId: 'crt_weektable',
+			containerId: document.getElementById('weektable'),
 			dataTable: data,
 			options:{
-				width: 450, height: 160,
-				title: 'EU-wide en-route ATFM delays (year to date)',
-				titleTextStyle : {color: 'grey', fontSize: 11},
+				showRowNumber: true,
+				width: '100%',
+				height: '100%'
 			}
 		});
-		crt_ertdlyYY.draw();
+		crt_weektable.draw();
 	});
 /*
 	var jsonData = $.ajax({
@@ -719,7 +762,7 @@ function drawWeekTable() {
 		dataType: "json",
 		async: false
 		}).responseText;
-*/
+
 	// Create our data table out of JSON data loaded from server.
 	var data = new google.visualization.DataTable(jsonData);
 
@@ -728,6 +771,7 @@ function drawWeekTable() {
 	table.draw(data, {showRowNumber: true,
 						width: '100%',
 						height: '100%'});
+*/
 }
 
 function drawMonthTable() {
@@ -759,17 +803,18 @@ function drawMonthTable() {
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
 		// CAPACITY - En-route ATFM delay - YY - CHART
-		var crt_ertdlyYY = new google.visualization.ChartWrapper({
-			chartType: 'LineChart',
-			containerId: 'crt_ertdlyYY',
+		var crt_monthtable = new google.visualization.ChartWrapper({
+			chartType: 'Table',
+		//	containerId: 'crt_monthtable',
+			containerId: document.getElementById('monthtable'),
 			dataTable: data,
 			options:{
-				width: 450, height: 160,
-				title: 'EU-wide en-route ATFM delays (year to date)',
-				titleTextStyle : {color: 'grey', fontSize: 11},
+				showRowNumber: true,
+				width: '100%',
+				height: '100%'
 			}
 		});
-		crt_ertdlyYY.draw();
+		crt_monthtable.draw();
 	});
 /*
 	var jsonData = $.ajax({
@@ -777,7 +822,7 @@ function drawMonthTable() {
 		dataType: "json",
 		async: false
 		}).responseText;
-*/
+
 	// Create our data table out of JSON data loaded from server.
 	var data = new google.visualization.DataTable(jsonData);
 
@@ -786,4 +831,5 @@ function drawMonthTable() {
 	table.draw(data, {showRowNumber: true,
 						width: '100%',
 						height: '100%'});
+*/
 }
