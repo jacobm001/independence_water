@@ -106,7 +106,7 @@
 			return $this->clean_return_data($result);
 		}
 
-		public function get_meter_avg_data($meter, $interval) 
+		public function get_meter_avg_data($interval) 
 		{
 			$this->validate_interval($interval);
 			
