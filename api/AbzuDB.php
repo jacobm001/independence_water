@@ -138,6 +138,7 @@
 			$interval_format = $this->interval_format($interval);
 
 			$stmt = $this->db->prepare($this->qry_guage_to_date);
+			$stmt->bindParam(':meter_id', $meter);
 			$stmt->bindParam(':tformat', $interval_format);
 			$stmt->bindParam(':period', $period);
 
