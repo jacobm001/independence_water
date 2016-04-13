@@ -1,5 +1,5 @@
 select
-	avg(value)
+	avg(value) as value
 from
 	(
 		select
