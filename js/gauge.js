@@ -48,14 +48,14 @@ config2.maxValue = 500;
 */
 $.get("../api/" + meterID + "/monthtodate", function(csvString) {
 	// transform the CSV string into an n-dimensional array, where n is the number of columns in the csv
-//	var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
+	var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 /*	if( arrayData.length > 1) {
 		error check here
 	} else {
 */
-//	config2.maxValue = arrayData[0] + 50;
+	config2.maxValue = arrayData[0] + 50;
 	config2.maxValue = csvString + 50;
-	var gauge2= loadLiquidFillGauge("fillgauge2", csvString, config2);
+//	var gauge2= loadLiquidFillGauge("fillgauge2", csvString, config2);
 });
 //var gauge2= loadLiquidFillGauge("fillgauge2", 397, config2);
 
