@@ -60,7 +60,7 @@ $.get("../api/" + meterID + "/monthtodate/" + selectedYear + selectedMonth, func
 	} else {
 */
 //	config2.maxValue = arrayData[0] + 50;
-	config2.maxValue = csvString + 50;
+	config2.maxValue = csvString + "50";
 //	var gauge2= loadLiquidFillGauge("fillgauge2", arrayData[0], config2);
 	var gauge2= loadLiquidFillGauge("fillgauge2", csvString, config2);
 });
