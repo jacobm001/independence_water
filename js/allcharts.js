@@ -5,10 +5,10 @@ google.charts.load('current', {'packages':['corechart', 'table']});
 google.charts.setOnLoadCallback(drawDayChart);
 
 // Draw the combo chart for weekly use when Charts is loaded.
-google.charts.setOnLoadCallback(drawWeeklyChart);
+//google.charts.setOnLoadCallback(drawWeeklyChart);
 
 // Draw the combo chart for monthly use when Charts is loaded.
-google.charts.setOnLoadCallback(drawMonthChart);
+//google.charts.setOnLoadCallback(drawMonthChart);
 
 // Draw the combo chart for daily use when Charts is loaded.
 google.charts.setOnLoadCallback(drawDayTotalChart);
@@ -35,7 +35,7 @@ var jsonData = $.ajax({
 
 // Callback that draws the combo chart for daily use when Charts is loaded.
 function drawDayChart() {
-/*	
+	/*
 	// Create the data table for Daily combo chart.
 	var data = new google.visualization.DataTable();
 	data.addColumn('string', 'Date');
@@ -111,9 +111,10 @@ function drawDayChart() {
 									legend: { position: 'right', textStyle: {fontSize: 10 }, maxLines: 6, alignment: 'center'},
 									chartArea: {}
 		};
+
 		var chart = new google.visualization.ComboChart(document.getElementById('barchartday'));
 		chart.draw(data, options);
-*/	});
+	});
 /*
 	var jsonData = $.ajax({
 		url: "getData.php",
@@ -123,7 +124,8 @@ function drawDayChart() {
 
 	// Create our data table out of JSON data loaded from server.
 	var data = new google.visualization.DataTable(jsonData);
-
+*/
+/*
 	// Set options for Daily combo chart.
 	var options = {title:'Febuary Water Use',
 								width:700,
@@ -282,7 +284,7 @@ function drawMonthChart() {
 	]);
 */
 	$.get("../api/" + meterID + "/monthchart", function(csvString) {
-		// transform the CSV string into a 2-dimensional array
+		// transform the CSV string into an n-dimensional array, where n is the number of columns in the csv
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
 		// this new DataTable object holds all the data
@@ -401,7 +403,8 @@ function drawDayTotalChart() {
 
 	// Create our data table out of JSON data loaded from server.
 	var data = new google.visualization.DataTable(jsonData);
-
+*/
+/*
 	// Set options for Daily total chart.
 	var options = {title:'Febuary Daily Total Water Use',
 								width:700,
@@ -412,7 +415,7 @@ function drawDayTotalChart() {
 								legend: { position: 'right', textStyle: {fontSize: 10 }, maxLines: 6, alignment: 'center'},
 	};
 
-	// Instantiate and draw the chart for Sarah's pizza.
+	// Instantiate and draw the chart for Daily running total.
 	var chart = new google.visualization.ComboChart(document.getElementById('linechartday'));
 	chart.draw(data, options);
 */
