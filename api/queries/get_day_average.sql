@@ -25,4 +25,4 @@ with cte as (
 select
 	avg(value) as value
 from
-	cte
+	cte;
