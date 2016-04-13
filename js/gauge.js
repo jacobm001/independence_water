@@ -79,7 +79,7 @@ config3.displayPercent = false;
 config3.minValue = 0;
 config3.maxValue = 30;
 */
-$.get("../api/" + meterID + "/dayaverage/" + selectedYear + selectedMonth + selectedDay, function(csvString) {
+$.get("../api/" + meterID + "/dayaverage/", function(csvString) {
 	// transform the CSV string into an n-dimensional array, where n is the number of columns in the csv
 	var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 /*	if( arrayData.length > 1) {
