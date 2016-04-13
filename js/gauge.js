@@ -1,3 +1,5 @@
+var meterID = 7813517;
+
 var config1 = liquidFillGaugeDefaultSettings();
 config1.circleColor = "#0099FF";
 config1.textColor = "#0055AA";
