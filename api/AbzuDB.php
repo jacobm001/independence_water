@@ -141,9 +141,10 @@
 			$stmt->bindParam(':meter_id', $meter);
 			$stmt->bindParam(':tformat', $interval_format);
 			$stmt->bindParam(':period', $period);
+			$stmt->execute();
 
 			$result = $stmt->fetch(PDO::FETCH_ASSOC);
-			return $return["value"];
+			return $result["value"];
 		}
 
 		private function verify_timestamp($timestamp)
