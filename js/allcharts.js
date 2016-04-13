@@ -1,3 +1,5 @@
+var meterID = 7813517;
+
 // Load Charts and the corechart package.
 google.charts.load('current', {'packages':['corechart', 'table']});
 
@@ -100,6 +102,7 @@ function drawDayChart() {
 			}
 		});
 		crt_day.draw();
+	});
 /*
 		var options = {title:'Febuary Water Use',
 									width:700,
