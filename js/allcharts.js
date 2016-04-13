@@ -90,7 +90,7 @@ function drawDayChart() {
 			containerId: document.getElementById('barchartday'),
 			dataTable: data,
 			options:{
-				title:'Febuary Water Use',
+				title:'Daily Water Use',
 				width:700,
 				height:400,
 				vAxis: {title: 'Water Use'},

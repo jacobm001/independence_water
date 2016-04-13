@@ -1,4 +1,8 @@
 var meterID = 7813517;
+var selectedYear = "2016";
+var selectedMonth = "-02"
+var selectedDay = "-28"
+var selectedDate = "2016-02-28";
 
 var config1 = liquidFillGaugeDefaultSettings();
 config1.circleColor = "#0099FF";
@@ -19,7 +23,7 @@ config1.displayPercent = false;
 config1.minValue = 0;
 config1.maxValue = 5000;
 */
-$.get("../api/" + meterID + "/yeartodate", function(csvString) {
+$.get("../api/" + meterID + "/yeartodate/" + selectedYear, function(csvString) {
 	// transform the CSV string into an n-dimensional array, where n is the number of columns in the csv
 	var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 /*	if( arrayData.length > 1) {
@@ -46,7 +50,7 @@ config2.displayPercent = false;
 config2.minValue = 0;
 config2.maxValue = 500;
 */
-$.get("../api/" + meterID + "/monthtodate", function(csvString) {
+$.get("../api/" + meterID + "/monthtodate/" + selectedYear + selectedMonth, function(csvString) {
 	// transform the CSV string into an n-dimensional array, where n is the number of columns in the csv
 	var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 /*	if( arrayData.length > 1) {
@@ -73,7 +77,7 @@ config3.displayPercent = false;
 config3.minValue = 0;
 config3.maxValue = 30;
 */
-$.get("../api/" + meterID + "/dayaverage", function(csvString) {
+$.get("../api/" + meterID + "/dayaverage/" + selectedYear + selectedMonth + selectedDay, function(csvString) {
 	// transform the CSV string into an n-dimensional array, where n is the number of columns in the csv
 	var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 /*	if( arrayData.length > 1) {
