@@ -21,7 +21,7 @@
 
 		public function submit()
 		{
-			$params = explode("/", $uriGetParam);
+			$params = explode("/", $_GET['uri']);
 			
 			if ($params[0] == "api"){
 				if ($params[2] == "daychart"){
