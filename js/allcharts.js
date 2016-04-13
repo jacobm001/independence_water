@@ -100,6 +100,7 @@ function drawDayChart() {
 			}
 		});
 		crt_day.draw();
+	}
 /*
 		var options = {title:'Febuary Water Use',
 									width:700,
