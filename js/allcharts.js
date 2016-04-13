@@ -7,10 +7,10 @@ google.charts.load('current', {'packages':['corechart', 'table']});
 google.charts.setOnLoadCallback(drawDayChart);
 
 // Draw the combo chart for weekly use when Charts is loaded.
-//google.charts.setOnLoadCallback(drawWeeklyChart);
+google.charts.setOnLoadCallback(drawWeeklyChart);
 
 // Draw the combo chart for monthly use when Charts is loaded.
-//google.charts.setOnLoadCallback(drawMonthChart);
+google.charts.setOnLoadCallback(drawMonthChart);
 
 // Draw the combo chart for daily use when Charts is loaded.
 google.charts.setOnLoadCallback(drawDayTotalChart);
@@ -90,7 +90,7 @@ function drawDayChart() {
 			containerId: document.getElementById('barchartday'),
 			dataTable: data,
 			options:{
-				title:'Febuary Water Use',
+				title:'Daily Water Use',
 				width:700,
 				height:400,
 				vAxis: {title: 'Water Use'},
@@ -390,9 +390,12 @@ function drawDayTotalChart() {
 			containerId: document.getElementById('linechartday'),
 			dataTable: data,
 			options:{
-				width: 450, height: 160,
-				title: 'EU-wide en-route ATFM delays (year to date)',
-				titleTextStyle : {color: 'grey', fontSize: 11},
+				width:700,
+				height:400,
+				vAxis: {title: 'Water Use'},
+				hAxis: {slantedText:true, slantedTextAngle:70},
+				seriesType:'line',
+				legend: { position: 'right', textStyle: {fontSize: 10 }, maxLines: 6, alignment: 'center'},
 			}
 		});
 		crt_daytotal.draw();
@@ -500,9 +503,12 @@ function drawWeekTotalChart() {
 			containerId: document.getElementById('linechartweek'),
 			dataTable: data,
 			options:{
-				width: 450, height: 160,
-				title: 'EU-wide en-route ATFM delays (year to date)',
-				titleTextStyle : {color: 'grey', fontSize: 11},
+				width:700,
+				height:400,
+				vAxis: {title: 'Water Use'},
+				hAxis: {slantedText:true, slantedTextAngle:70},
+				seriesType:'line',
+				legend: { position: 'right', textStyle: {fontSize: 10 }, maxLines: 6, alignment: 'center'},
 			}
 		});
 		crt_weektotal.draw();
@@ -568,9 +574,12 @@ function drawMonthTotalChart() {
 			containerId: document.getElementById('linechartmonth'),
 			dataTable: data,
 			options:{
-				width: 450, height: 160,
-				title: 'EU-wide en-route ATFM delays (year to date)',
-				titleTextStyle : {color: 'grey', fontSize: 11},
+				width:700,
+				height:400,
+				vAxis: {title: 'Water Use'},
+				hAxis: {slantedText:true, slantedTextAngle:70},
+				seriesType:'line',
+				legend: { position: 'right', textStyle: {fontSize: 10 }, maxLines: 6, alignment: 'center'},
 			}
 		});
 		crt_monthtotal.draw();
