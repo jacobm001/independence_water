@@ -28,7 +28,6 @@ $.get("../api/" + meterID + "/yeartodate", function(csvString) {
 */
 	config1.maxValue = arrayData[0] + 500;
 	var gauge1 = loadLiquidFillGauge("fillgauge1", arrayData[0], config1);
-	}
 });
 //var gauge1 = loadLiquidFillGauge("fillgauge1", 4580, config1);
 
@@ -56,7 +55,6 @@ $.get("../api/" + meterID + "/monthtodate", function(csvString) {
 */
 	config2.maxValue = arrayData[0] + 50;
 	var gauge2= loadLiquidFillGauge("fillgauge2", arrayData[0], config2);
-	}
 });
 //var gauge2= loadLiquidFillGauge("fillgauge2", 397, config2);
 
@@ -82,7 +80,6 @@ $.get("../api/" + meterID + "/dayaverage", function(csvString) {
 */
 	config3.maxValue = arrayData[0] + 5;
 	var gauge3 = loadLiquidFillGauge("fillgauge3", arrayData[0], config3);
-	}
 });
 //var gauge3 = loadLiquidFillGauge("fillgauge3", 12.41666667, config3);
 
