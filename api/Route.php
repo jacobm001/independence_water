@@ -49,16 +49,16 @@
 					echo $db_api->get_meter_data($params[1], "month");
 				}
 				if ($params[2] == "dayaverage"){
-					echo $db_api->get_meter_data($params[1], "day");
+					echo $db_api->get_gauge_to_date($params[1], "day");
 				}
 				if ($params[2] == "monthtodate"){
-					echo $db_api->get_meter_data($params[1], "month");
+					echo $db_api->get_gauge_to_date($params[1], "month");
 				}
 				if ($params[2] == "yeartodate"){
-					echo $db_api->get_meter_data($params[1], "year");
+					echo $db_api->get_gauge_to_date($params[1], "year");
 				}
 				if ($params[2] == "daycityaverage"){
-					echo $db_api->get_meter_data($params[1], "day");
+					echo $db_api->get_city_avg_data($params[1], "day");
 				}
 				if ($params[2] == "weekcityaverage"){
 					echo $db_api->get_meter_data($params[1], "week");
