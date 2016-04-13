@@ -1,15 +1,11 @@
 <?php 
 	include 'Init.php';
 	include 'DataImporter.php';
-	include 'Route.php';
 	include 'AbzuDB.php';
+	include 'Route.php';
 	
-	$route = new Route();
-	
-	$route->add('read/day');
-	$route->add('read/week');
-	$route->add('read/month');
-	$route->add('read/year');
-	
+	$AbzuDB = new AbzuDB($db);
+
+	$route = new Route($AbzuDB);
 	$route->submit();
 ?>
