@@ -23,7 +23,7 @@
 		{
 			$params = explode("/", $_GET['uri']);
 			
-			if ($params[0] == "api"){
+			//if ($params[0] == "api"){
 				if ($params[2] == "daychart"){
 					echo $this->AbzuDB->get_meter_data($params[1], "day");
 				}
@@ -69,9 +69,9 @@
 				if ($params[2] == "monthcityaverage"){
 					echo $this->AbzuDB->get_city_avg_data($params[1], "month");
 				}
-			} else {
-				echo "Invalid route";
-			}
+			// } else {
+			// 	echo "Invalid route";
+			// }
 		}
 	}
 	?>
