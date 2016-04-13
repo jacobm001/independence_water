@@ -52,13 +52,13 @@
 					echo $this->AbzuDB->get_meter_data($params[0], "month");
 				}
 				if ($params[1] == "dayaverage"){
-					echo $this->AbzuDB->get_gauge_to_date($params[0], "day", $params[3]);
+					echo $this->AbzuDB->get_gauge_to_date($params[0], "day", $params[2]);
 				}
 				if ($params[1] == "monthtodate"){
-					echo $this->AbzuDB->get_gauge_to_date($params[0], "month", $params[3]);
+					echo $this->AbzuDB->get_gauge_to_date($params[0], "month", $params[2]);
 				}
 				if ($params[1] == "yeartodate"){
-					echo $this->AbzuDB->get_gauge_to_date($params[0], "year", $params[3]);
+					echo $this->AbzuDB->get_gauge_to_date($params[0], "year", $params[2]);
 				}
 				if ($params[1] == "daycityaverage"){
 					echo $this->AbzuDB->get_city_avg_data($params[0], "day");
