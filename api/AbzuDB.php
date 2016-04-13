@@ -29,6 +29,7 @@
 			$this->qry_city_avg_sm   = file_get_contents("../api/queries/get_city_avg_sm.sql");
 			$this->qry_city_avg_lg   = file_get_contents("../api/queries/get_city_avg_lg.sql");
 			$this->qry_guage_to_date = file_get_contents("../api/queries/get_gauge_to_date.sql");
+			$this->qry_get_day_avg   = file_get_contents("../api/queries/get_day_average.sql");
 		}
 
 		private function validate_interval($interval)
@@ -169,6 +170,16 @@
 			$stmt->bindParam(':time_read', $t);
 
 			$stmt->execute();
+		}
+
+		public function get_day_average($meter)
+		{
+			$stmt = $this->db->prepare($this->qry_get_day_avg);
+			$stmt->bindParam(':meter_id', $meter);
+			$stmt->execute();
+
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+			return $result["value"];
 		}
 
 		public function load_historical_data($f)
