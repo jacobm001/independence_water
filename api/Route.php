@@ -52,7 +52,7 @@
 					echo $this->AbzuDB->get_meter_data($params[0], "month");
 				}
 				if ($params[1] == "dayaverage"){
-					echo $this->AbzuDB->get_gauge_to_date($params[0], "day", $params[2]);
+					echo $this->AbzuDB->get_day_average($params[0]);
 				}
 				if ($params[1] == "monthtodate"){
 					echo $this->AbzuDB->get_gauge_to_date($params[0], "month", $params[2]);
