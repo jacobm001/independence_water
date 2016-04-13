@@ -7,6 +7,8 @@
 		private $qry_meter_read_sm;
 		private $qry_meter_read_lg;
 		private $qry_meter_insert;
+		private $qry_city_avg_sm;
+		private $qry_city_avg_lg;
 
 		private $valid_intervals = [
 			// "hour",
@@ -24,6 +26,9 @@
 			$this->qry_meter_read_sm = file_get_contents("../api/queries/get_meter_read_sm.sql");
 			$this->qry_meter_read_lg = file_get_contents("../api/queries/get_meter_read_lg.sql");
 			$this->qry_meter_insert  = file_get_contents("../api/queries/insert_meter_data.sql");
+			$this->qry_city_avg_sm   = file_get_contents("../api/queries/get_city_avg_sm.sql");
+			$this->qry_city_avg_lg   = file_get_contents("../api/queries/get_city_avg_lg.sql");
+			$this->qry_guage_to_date = file_get_contents("../api/queries/get_gauge_to_date.sql");
 		}
 
 		private function validate_interval($interval)
@@ -100,6 +105,46 @@
 
 			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			return $this->clean_return_data($result);
+		}
+
+		public function get_city_avg_data($interval) 
+		{
+			$this->validate_interval($interval);
+			
+			$interval_format = $this->interval_format($interval);
+			$dec_value       = $this->decrement_value($interval);
+			
+			$query_option = $this->choose_query($interval);
+
+			if($query_option == 'sm') {
+				$stmt = $this->db->prepare($this->qry_city_avg_sm);
+				$stmt->bindParam(':dec_value', $dec_value, PDO::PARAM_STR);
+			}
+			else {
+				$stmt = $this->db->prepare($this->qry_city_avg_lg);
+			}
+			
+			$stmt->bindParam(':tformat', $interval_format, PDO::PARAM_STR);
+			$stmt->execute();
+
+			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			return $this->clean_return_data($result);
+		}
+
+		public function get_gauge_to_date($meter, $interval, $period)
+		{
+			$this->validate_interval($interval);
+
+			$interval_format = $this->interval_format($interval);
+
+			$stmt = $this->db->prepare($this->qry_guage_to_date);
+			$stmt->bindParam(':meter_id', $meter);
+			$stmt->bindParam(':tformat', $interval_format);
+			$stmt->bindParam(':period', $period);
+			$stmt->execute();
+
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+			return $result["value"];
 		}
 
 		private function verify_timestamp($timestamp)

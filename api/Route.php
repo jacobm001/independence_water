@@ -1,4 +1,6 @@
 <?php
+	include 'AbzuDB.php';
+	
 	class Route{
 		private $_uri = [];
 		private $_method = [];
@@ -15,15 +17,57 @@
 
 		public function submit()
 		{
-			echo $uriGetParam = isset($_GET['uri']) ? '/' . $_GET['uri'] : '/';
-		
-			foreach ($this->_uri as $key => $value)
-			{
-				if (preg_match("#$^value$#", $uriGetParam))
-				{
-					$useMethod = $this->_method[$key];
-					new $useMethod;
+			$params = explode("/", $uriGetParam);
+			$db_api = new AbzuDB();
+			
+			if ($params[0] == "api"){
+				if ($params[2] == "daychart"){
+					echo $db_api->get_meter_data($params[1], "day");
 				}
+				if ($params[2] == "weekchart"){
+					echo $db_api->get_meter_data($params[1], "week");
+				}
+				if ($params[2] == "monthchart"){
+					echo $db_api->get_meter_data($params[1], "month");
+				}
+				if ($params[2] == "daytotalchart"){
+					echo $db_api->get_meter_data($params[1], "day");
+				}
+				if ($params[2] == "weektotalchart"){
+					echo $db_api->get_meter_data($params[1], "week");
+				}
+				if ($params[2] == "monthtotalchart"){
+					echo $db_api->get_meter_data($params[1], "month");
+				}
+				if ($params[2] == "daytable"){
+					echo $db_api->get_meter_data($params[1], "day");
+				}
+				if ($params[2] == "weektable"){
+					echo $db_api->get_meter_data($params[1], "week");
+				}
+				if ($params[2] == "monthtable"){
+					echo $db_api->get_meter_data($params[1], "month");
+				}
+				if ($params[2] == "dayaverage"){
+					echo $db_api->get_meter_data($params[1], "day");
+				}
+				if ($params[2] == "monthtodate"){
+					echo $db_api->get_meter_data($params[1], "month");
+				}
+				if ($params[2] == "yeartodate"){
+					echo $db_api->get_meter_data($params[1], "year");
+				}
+				if ($params[2] == "daycityaverage"){
+					echo $db_api->get_meter_data($params[1], "day");
+				}
+				if ($params[2] == "weekcityaverage"){
+					echo $db_api->get_meter_data($params[1], "week");
+				}
+				if ($params[2] == "monthcityaverage"){
+					echo $db_api->get_meter_data($params[1], "month");
+				}
+			} else {
+				echo "Invalid route";
 			}
 		}
 	}
