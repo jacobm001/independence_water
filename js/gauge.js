@@ -29,7 +29,7 @@ $.get("../api/" + meterID + "/yeartodate", function(csvString) {
 	config1.maxValue = arrayData[0] + 500;
 	var gauge1 = loadLiquidFillGauge("fillgauge1", arrayData[0], config1);
 	}
-}
+});
 //var gauge1 = loadLiquidFillGauge("fillgauge1", 4580, config1);
 
 var config2 = liquidFillGaugeDefaultSettings();
@@ -57,7 +57,7 @@ $.get("../api/" + meterID + "/monthtodate", function(csvString) {
 	config2.maxValue = arrayData[0] + 50;
 	var gauge2= loadLiquidFillGauge("fillgauge2", arrayData[0], config2);
 	}
-}
+});
 //var gauge2= loadLiquidFillGauge("fillgauge2", 397, config2);
 
 var config3 = liquidFillGaugeDefaultSettings();
@@ -72,6 +72,7 @@ config3.displayPercent = false;
 /*
 config3.minValue = 0;
 config3.maxValue = 30;
+*/
 $.get("../api/" + meterID + "/dayaverage", function(csvString) {
 	// transform the CSV string into an n-dimensional array, where n is the number of columns in the csv
 	var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
@@ -82,7 +83,7 @@ $.get("../api/" + meterID + "/dayaverage", function(csvString) {
 	config3.maxValue = arrayData[0] + 5;
 	var gauge3 = loadLiquidFillGauge("fillgauge3", arrayData[0], config3);
 	}
-}
+});
 //var gauge3 = loadLiquidFillGauge("fillgauge3", 12.41666667, config3);
 
 function NewValue(){
