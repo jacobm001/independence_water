@@ -139,6 +139,7 @@
 		{
 			$this->validate_interval($interval);
 			$interval_format = $this->interval_format($interval);
+			$query_option = $this->choose_query($interval);
 
 			if($query_option == 'sm') {
 				$stmt = $this->db->prepare($this->qry_guage_to_date_sm);
