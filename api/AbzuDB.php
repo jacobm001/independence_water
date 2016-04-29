@@ -135,10 +135,16 @@
 		public function get_gauge_to_date($meter, $interval, $period)
 		{
 			$this->validate_interval($interval);
-
 			$interval_format = $this->interval_format($interval);
 
-			$stmt = $this->db->prepare($this->qry_guage_to_date);
+			if($query_option == 'sm') {
+				$stmt = $this->db->prepare($this->qry_guage_to_date_sm);
+				$stmt->bindParam(':dec_value', $dec_value, PDO::PARAM_STR);
+			}
+			else {
+				$stmt = $this->db->prepare($this->qry_guage_to_date_lg);
+			}
+
 			$stmt->bindParam(':meter_id', $meter);
 			$stmt->bindParam(':tformat', $interval_format);
 			$stmt->bindParam(':period', $period);
