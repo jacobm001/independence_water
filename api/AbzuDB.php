@@ -30,7 +30,7 @@
 			$this->qry_meter_insert     = file_get_contents("../api/queries/insert_meter_data.sql");
 			$this->qry_city_avg_sm      = file_get_contents("../api/queries/get_city_avg_sm.sql");
 			$this->qry_city_avg_lg      = file_get_contents("../api/queries/get_city_avg_lg.sql");
-			$this->qry_guage_to_date_sm = file_get_contents("../api/queries/get_guage_to_date_sm.sql");
+			$this->qry_guage_to_date_sm = file_get_contents("../api/queries/get_gauge_to_date_sm.sql");
 			$this->qry_guage_to_date_lg = file_get_contents("../api/queries/get_gauge_to_date_lg.sql");
 			$this->qry_get_day_avg      = file_get_contents("../api/queries/get_day_average.sql");
 		}
