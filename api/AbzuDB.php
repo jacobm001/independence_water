@@ -9,6 +9,8 @@
 		private $qry_meter_insert;
 		private $qry_city_avg_sm;
 		private $qry_city_avg_lg;
+		private $qry_guage_to_date_sm;
+		private $qry_guage_to_date_lg;
 
 		private $valid_intervals = [
 			// "hour",
