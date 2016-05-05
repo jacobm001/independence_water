@@ -675,7 +675,7 @@ function drawDayTable() {
 		console.log(arrayData);
 
 		if (arrayData.length > 2){
-			arrayData[1][2] = parseInt(arrayData[1][1];
+			arrayData[1][2] = parseInt(arrayData[1][1]);
 			console.log(arrayData);
 
 			for (var i = 2; i < arrayData.length; i++){
