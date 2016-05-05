@@ -382,8 +382,8 @@ function drawDayTotalChart() {
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 		console.log(arrayData);
 
-		if (arrayData.length > 1){
-			for (var i = 1; i < arrayData.length; i++){
+		if (arrayData.length > 2){
+			for (var i = 2; i < arrayData.length; i++){
 				arrayData[i][1] = parseInt(arrayData[i][1] + arrayData[i - 1][1]);
 			}
 		}
