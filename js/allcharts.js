@@ -381,6 +381,12 @@ function drawDayTotalChart() {
 		// transform the CSV string into a 2-dimensional array
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
+		if (araryData.length > 1){
+			for (var i = 1; i < arrayData.length; i++){
+				arrayData[i] += arrayData[i - 1];
+			}
+		}
+
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
 		// CAPACITY - En-route ATFM delay - YY - CHART
@@ -494,6 +500,12 @@ function drawWeekTotalChart() {
 		// transform the CSV string into a 2-dimensional array
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
+		if (araryData.length > 1){
+			for (var i = 1; i < arrayData.length; i++){
+				arrayData[i] += arrayData[i - 1];
+			}
+		}
+
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
 		// CAPACITY - En-route ATFM delay - YY - CHART
@@ -564,6 +576,12 @@ function drawMonthTotalChart() {
 	$.get("../api/" + meterID + "/monthtotalchart", function(csvString) {
 		// transform the CSV string into a 2-dimensional array
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
+
+		if (araryData.length > 1){
+			for (var i = 1; i < arrayData.length; i++){
+				arrayData[i] += arrayData[i - 1];
+			}
+		}
 
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
@@ -754,6 +772,14 @@ function drawWeekTable() {
 	$.get("../api/" + meterID + "/weektable", function(csvString) {
 		// transform the CSV string into a 2-dimensional array
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
+		var totalArray[0] = arrayData[0];
+
+		if (araryData.length > 1){
+			for (var i = 1; i < arrayData.length; i++){
+				totalArray[i] += totalArray[i - 1];
+			}
+		}
+
 
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
