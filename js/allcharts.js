@@ -501,9 +501,9 @@ function drawWeekTotalChart() {
 		// transform the CSV string into a 2-dimensional array
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
-		if (arrayData.length > 1){
-			for (var i = 1; i < arrayData.length; i++){
-				arrayData[i] += arrayData[i - 1];
+		if (arrayData.length > 2){
+			for (var i = 2; i < arrayData.length; i++){
+				arrayData[i][1] = parseInt(arrayData[i][1] + arrayData[i - 1][1]);
 			}
 		}
 
@@ -578,9 +578,9 @@ function drawMonthTotalChart() {
 		// transform the CSV string into a 2-dimensional array
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
-		if (arrayData.length > 1){
-			for (var i = 1; i < arrayData.length; i++){
-				arrayData[i] += arrayData[i - 1];
+		if (arrayData.length > 2){
+			for (var i = 2; i < arrayData.length; i++){
+				arrayData[i][1] = parseInt(arrayData[i][1] + arrayData[i - 1][1]);
 			}
 		}
 
