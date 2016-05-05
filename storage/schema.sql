@@ -26,4 +26,11 @@ create table if not exists meter_read (
 	constraint meter_read_unq unique (meter_id, value, time_read)
 );
 
+create table if not exists users (
+	id       integer primary key autoincrement,
+	username text not null unique,
+	password text not null
+);
+
 create index if not exists meter_read_sorted on meter_read(meter_id desc,time_read desc);
+insert into users(`username`, `password`) values('admin', 'admin');
