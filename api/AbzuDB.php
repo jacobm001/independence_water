@@ -11,6 +11,7 @@
 		private $qry_city_avg_lg;
 		private $qry_guage_to_date_sm;
 		private $qry_guage_to_date_lg;
+		private $qry_check_user_cred;
 
 		private $valid_intervals = [
 			// "hour",
@@ -33,6 +34,7 @@
 			$this->qry_guage_to_date_sm = file_get_contents("../api/queries/get_gauge_to_date_sm.sql");
 			$this->qry_guage_to_date_lg = file_get_contents("../api/queries/get_gauge_to_date_lg.sql");
 			$this->qry_get_day_avg      = file_get_contents("../api/queries/get_day_average.sql");
+			$this->qry_check_user_cred  = file_get_contents("../api/queries/check_user_credentials.sql");
 		}
 
 		private function validate_interval($interval)
@@ -200,6 +202,20 @@
 			catch (Exception $e) {
 				die("bad import file");
 			}
+		}
+
+		public function check_credentials($user, $pass)
+		{
+			$stmt = $this->db->prepare($this->qry_check_user_cred);
+			$stmt->bindParam(':username', $user);
+			$stmt->bindParam(':password', $pass);
+			$stmt->execute();
+
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+			if( $result->rowCount() == 0 )
+				echo 'False';
+			else
+				echo 'True';
 		}
 	}
 ?>
