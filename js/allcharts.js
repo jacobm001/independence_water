@@ -674,6 +674,14 @@ function drawDayTable() {
 		// transform the CSV string into a 2-dimensional array
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
+		if (arrayData.length > 2){
+			arrayData[1][2] = parseInt(arrayData[1][1];
+				
+			for (var i = 2; i < arrayData.length; i++){
+				arrayData[i][2] = parseInt(arrayData[i][1] + arrayData[i - 1][2]);
+			}
+		}
+
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
 		// CAPACITY - En-route ATFM delay - YY - CHART
