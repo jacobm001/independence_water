@@ -83,7 +83,7 @@
 % have to be run twice to clear warning/error messages.
 
 \usepackage{float}
-
+\usepackage{listings}
 
 
 
@@ -360,7 +360,7 @@
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
 \title{Project Abzu: Water Usage Visualization \\
-	\LARGE Midterm Report}
+  \LARGE Beta Report}
 %
 %
 % author names and IEEE memberships
@@ -373,7 +373,7 @@
 %
 
 \author{Tyler~Fosback,
-		Jacob~Mastel,
+    Jacob~Mastel,
         and~Alexander~Merrill
         }% <-this % stops a space
 %\thanks{M. Shell was with the Department
@@ -412,7 +412,7 @@ The City of Independence wants a mobile web application enabling city residents 
 
 
 % The paper headers
-\markboth{Oregon State Univeristy,~CS~462, Group~31, Abzu, March~2016}%
+\markboth{Oregon State Univeristy,~CS~462, Group~31, Abzu, April~2016}%
 {Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for IEEE Journals}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
@@ -645,6 +645,7 @@ The user inputs requests into the application front-end which signals the applic
 
 \section{Current Progress}
 \subsection{Front End}
+% Prototype
 \IEEEPARstart{T}{he} User Interface is the focus of the front end so the first thing that had to be done was to design the layout. Visio was initially used to create non-functional prototypes of Abzu's UI. Visio allowed the developers to experiment and quickly look at different layout options so the best could be chosen. Information that most users would be interested in was to be displayed on every page. This includes current monthly water use, yearly water use to date, and average daily water use.
 
 The idea of displaying this information as plain text was quickly dismissed as part of the purpose of Abzu is to be visually interesting. Options for how to visually represent the information in a clear way were then explored and D3 had an example visualization that put numbers in "liquid gauges". A water fill graphic with clear numbers is a perfect fit for Abzu so it was put into the prototype.
@@ -685,6 +686,7 @@ Last was to prototype the stretch goal of a heat map of the Independence, Oregon
   \label{fig:heatmap}
 \end{figure}
 
+% Alpha
 With the prototyping done and a design chosen, development began on writing the front end. Bootstrap was chosen for the front end framework and D3 initially as the framework for visualizations. The application was built according to the prototype with an addition of a home tab which may contain the stretch goal of posted announcements. The bar charts have been changed to combo charts with the line being the average. Figure \ref{fig:combo} is a combo chart without real data in use.
 
 \begin{figure}[H]
@@ -693,12 +695,52 @@ With the prototyping done and a design chosen, development began on writing the 
   \label{fig:combo}
 \end{figure}
 
+% Beta
+Beta development of the front end was delayed until routes were implemented in the API and database had queries for the API to call. While the API and database were being developed, formatting bugs were resolved in the front end. The most obvious fix was to make the labels angled instead of overlapping.
+
+The front end utilizes routes in the API to query the database. This is done with a jquery get request which pulls csv formatted strings from the API. For charts, the csv string is parsed into an array which is converted into a Google data table. The data table is then used to draw the charts, as that is the format required by Google charts. Gauges are drawn by parsing the csv string into an array, checking that the array is only one element long, and using that element to populate the gauges.
+
+\lstset{language=Java,caption={The drawDayChart function demonstrates how routes are used in the front end to return a csv formatted string. This string is parsed to create visualizations.},label=drawDayChart}
+\begin{lstlisting}
+function drawDayChart() {
+    $.get("../api/" + meterID + "/daychart", function(csvString) {
+        // transform the CSV string into a 2-dimensional array
+        var arrayData = $.csv.toArrays(csvString,
+            {onParseValue:$.csv.hooks.castToScalar});
+
+        // this new DataTable object holds all the data
+        var data = new google.visualization.arrayToDataTable(arrayData);
+        var crt_day = new google.visualization.ChartWrapper({
+            chartType: 'ComboChart',
+            containerId: document.getElementById('barchartday'),
+            dataTable: data,
+            options:{
+                title:'Daily Water Use',
+                width:700,
+                height:400,
+                vAxis: {title: 'Water Use'},
+                hAxis: {slantedText:true, slantedTextAngle:70},
+                seriesType:'line',
+                series: {0: {type: 'bars'}},
+                legend: { position: 'right', textStyle: {fontSize: 10 },
+                    maxLines: 6, alignment: 'center'},
+                chartArea: {}
+            }
+        });
+        crt_day.draw();
+    });
+}
+\end{lstlisting}
+
 \subsection{Back End and API}
-A URL routing system has been prototyped. It is currently only capable of routing between several test pages on a local machine.
- 	
+The back end of the website consists of two files. The first is the routing file that parses uri requests made by the front end. The uri is separated into parameters to be used in querying the database. The routing function then calls a database api function based on several of the parameters and passes the rest of the parameters through to that function.
+
+The database api is accessed through one of several query functions.
+All the database interfacing is abstracted through the AbzuDB object.
+
 \subsection{Database}
 \subsubsection{Design}
-The database has been designed and implemented in SQLite. In its current design, it stores user information, meter information, the relationship between user accounts and meters, and a periodic snapshot of meter values. The database in production currently has a historical dataset of a 6 week period for 14 meters. Each entry in the historical dataset is a daily snapshot.
+The database has been designed and implemented in SQLite. In its current design, the database stores user information, meter information, the relationship between user accounts and meters, and a periodic snapshot of meter values. The database in production currently has a historical dataset of a 6 week period for 14 meters. Each entry in the historical dataset is a daily snapshot.
 
 While the database currently has the capacity to store basic user account information and what meters they own, none of that information is currently in the database. The City of Independence has not yet determined a method in which to populate the tables, so that will need to be addressed as future development.
 
@@ -707,8 +749,19 @@ To ensure data integrity, Abzu tries to take several steps to prevent the system
 
 The secondary data integrity check is within the database schema itself. All necessary fields have a \textit{not null} attribute, and the relationships are enforced with foreign keys. Any failure of this criteria is configured to result in a failed call that can then be addressed by the data interface layer.
 
-\subsubsection{Preventing Data Duplication}
-Abzu was designed with the idea that duplicated data may be submitted to the snapshot table, \textit{meter\_read}. This easily happen if two meter readers overlap, if historical data is loaded twice, or if a meter read and historical upload are used together. To address this problem, a constraint has been put into the database that will silently fail for the problematic row.
+%\subsubsection{Preventing Data Duplication}
+Abzu was designed with the idea that duplicated data may be submitted to the snapshot table, \textit{meter\_read}. This easily happens if two meter readers have an overlapping geographical area, if historical data is loaded twice, or if a meter reader and historical upload are used together. To address this problem, a constraint has been put into the database that will silently fail for the problematic row.
+
+\lstset{language=SQL,caption={The database schema prevents duplicated entries from being added to the database},label=SQL_meter_read}
+\begin{lstlisting}
+create table if not exists meter_read (
+  read_id   integer primary key autoincrement,
+  meter_id  integer not null,
+  value     integer not null,
+  time_read date    not null,
+  constraint meter_read_unq unique (meter_id, value, time_read)
+);
+\end{lstlisting}
 
 % if have a single appendix:
 %\appendix[Proof of the Zonklar Equations]
@@ -727,7 +780,7 @@ Abzu was designed with the idea that duplicated data may be submitted to the sna
 
 \section{Future Development}
 \subsection{Front End}
-\IEEEPARstart{T}{he} front end needs the back end and the database to be complete for a number of tasks. The first is to allow the front end to to query data from the database for use in the visualizations and tables. These tables need to be implemented and the graphs and charts need to resize properly to fit the screen.
+The graphs and charts need to resize properly to fit the screen.
 
 A user authentication page which queries the database for credentials also needs to be made. JavaScript prototypes of the front end have been made and it should be quick to implement once the back end is in place.
 
@@ -741,16 +794,50 @@ Stretch goals include implementing a heat map and an announcements panel. The an
 
 
 \subsection{Back End and API} \label{future:back}
-For the backend we need to design a cron job to handle leak detection. This will periodically check the database for meters with abnormally high water usage. If high usage is detected a flag will be set in the database for display on the front end.
+For the backend we need to design a cron job to handle leak detection. This will periodically check the database for meters with abnormally high water usage. If high usage is detected a flag will be set in the database for display on the front end. 
 
-A URL routing system will be implemented to connect the requests from the front end to the database. This system will also be used for user and session authentication.
+At this point, our biggest obstacle in creating the leak detection system is our lack of data. The only information we currently have about each meter is its address. We don't know the type of property it's attached to, or how many people are using water. Additionally, the data doesn't extend very far into the past. These problems make it very difficult to determine what the normal usage of each property should be.
 
 \subsection{Database}
-%Our first priority will be to create a working interface with the data. The library PDO will be able to handle the majority of the database calling, and we'll use that to make the project transition between different database types.
+While effective, the function used to load historical data exported from Master Meter software is inefficient. A single file doesn't produce a problem; however, uploading all 14 files provided by the City of Independence took about 30 seconds. A future solution should rely less on regular expressions and import data in bulk, rather than line-by-line.
 
-%We will be looking into getting a larger sample set of data from the City of Independence. We currently have the billing export for a single month. This gives us a "gallons used" value for the month, but no further detail. We also have a daily read of one meter for a couple weeks. To make our display viable, we're trying to get at a few months worth of data for all meters in which it's available.
+\lstset{language=PHP,caption={This figure shows function that converts the Master Meter historical export to the database.},label=DataImporter::submit_file()}
+\begin{lstlisting}
+private function submit_file()
+{
+    $sql  = 'insert into meter_read(meter_id,value,time_read) values(?,?,?)';
+    $stmt = $this->db->prepare($sql);
 
-%The database interface could use several improvements in the future.
+    $line_number = 0;
+    $lines = explode("\n", $this->contents);
+
+    foreach($lines as $line) 
+    {
+        if($line_number == 0) {
+            preg_match('/[0-9]+/', $line, $meter);
+            $this->meter_id = $meter[0];
+        }
+
+        else if($line_number >= 8) {
+            preg_match('/= [0-9]+/', $line, $read);
+            if(!empty($read))
+                $read = substr($read[0], 2);
+
+            preg_match('/Time: .+/', $line, $time);
+            if(!empty($read)) {
+                $time = substr($time[0], 6);
+                $time = strtotime($time);
+                $time = date('Y-m-d H:i',$time);
+            }
+
+            if($read != null and $time != null)
+                $stmt->execute(array($this->meter_id, $read, $time));
+        }
+
+        $line_number++;
+    }
+}
+\end{lstlisting}
 
 \section{Challenges and Solutions}
 \subsection{Wireless Meters}

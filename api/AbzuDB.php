@@ -9,6 +9,8 @@
 		private $qry_meter_insert;
 		private $qry_city_avg_sm;
 		private $qry_city_avg_lg;
+		private $qry_guage_to_date_sm;
+		private $qry_guage_to_date_lg;
 
 		private $valid_intervals = [
 			// "hour",
@@ -22,14 +24,15 @@
 		{
 			$this->db = $db;
 
-			$this->qry_meter_ids     = file_get_contents("../api/queries/get_meter_ids.sql");
-			$this->qry_meter_read_sm = file_get_contents("../api/queries/get_meter_read_sm.sql");
-			$this->qry_meter_read_lg = file_get_contents("../api/queries/get_meter_read_lg.sql");
-			$this->qry_meter_insert  = file_get_contents("../api/queries/insert_meter_data.sql");
-			$this->qry_city_avg_sm   = file_get_contents("../api/queries/get_city_avg_sm.sql");
-			$this->qry_city_avg_lg   = file_get_contents("../api/queries/get_city_avg_lg.sql");
-			$this->qry_guage_to_date = file_get_contents("../api/queries/get_gauge_to_date.sql");
-			$this->qry_get_day_avg   = file_get_contents("../api/queries/get_day_average.sql");
+			$this->qry_meter_ids        = file_get_contents("../api/queries/get_meter_ids.sql");
+			$this->qry_meter_read_sm    = file_get_contents("../api/queries/get_meter_read_sm.sql");
+			$this->qry_meter_read_lg    = file_get_contents("../api/queries/get_meter_read_lg.sql");
+			$this->qry_meter_insert     = file_get_contents("../api/queries/insert_meter_data.sql");
+			$this->qry_city_avg_sm      = file_get_contents("../api/queries/get_city_avg_sm.sql");
+			$this->qry_city_avg_lg      = file_get_contents("../api/queries/get_city_avg_lg.sql");
+			$this->qry_guage_to_date_sm = file_get_contents("../api/queries/get_gauge_to_date_sm.sql");
+			$this->qry_guage_to_date_lg = file_get_contents("../api/queries/get_gauge_to_date_lg.sql");
+			$this->qry_get_day_avg      = file_get_contents("../api/queries/get_day_average.sql");
 		}
 
 		private function validate_interval($interval)
@@ -135,10 +138,17 @@
 		public function get_gauge_to_date($meter, $interval, $period)
 		{
 			$this->validate_interval($interval);
-
 			$interval_format = $this->interval_format($interval);
+			$query_option = $this->choose_query($interval);
 
-			$stmt = $this->db->prepare($this->qry_guage_to_date);
+			if($query_option == 'sm') {
+				$stmt = $this->db->prepare($this->qry_guage_to_date_sm);
+				$stmt->bindParam(':dec_value', $dec_value, PDO::PARAM_STR);
+			}
+			else {
+				$stmt = $this->db->prepare($this->qry_guage_to_date_lg);
+			}
+
 			$stmt->bindParam(':meter_id', $meter);
 			$stmt->bindParam(':tformat', $interval_format);
 			$stmt->bindParam(':period', $period);
