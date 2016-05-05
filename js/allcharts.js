@@ -384,7 +384,7 @@ function drawDayTotalChart() {
 
 		if (arrayData.length > 1){
 			for (var i = 1; i < arrayData.length; i++){
-				arrayData[i] += arrayData[i - 1];
+				arrayData[i][1] += arrayData[i - 1][1];
 			}
 		}
 
