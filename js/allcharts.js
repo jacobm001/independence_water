@@ -695,6 +695,7 @@ function drawDayTable() {
 		var crt_daytable = new google.visualization.ChartWrapper({
 			chartType: 'Table',
 		//	containerId: 'crt_daytable',
+			data.addColumn('date', 'Date');
 			containerId: document.getElementById('daytable'),
 			dataTable: data,
 			options:{
