@@ -380,7 +380,6 @@ function drawDayTotalChart() {
 	$.get("../api/" + meterID + "/daytotalchart", function(csvString) {
 		// transform the CSV string into a 2-dimensional array
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
-		console.log(arrayData);
 
 		if (arrayData.length > 2){
 			for (var i = 2; i < arrayData.length; i++){
@@ -673,10 +672,12 @@ function drawDayTable() {
 	$.get("../api/" + meterID + "/daytable", function(csvString) {
 		// transform the CSV string into a 2-dimensional array
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
+		console.log(arrayData);
 
 		if (arrayData.length > 2){
 			arrayData[1][2] = parseInt(arrayData[1][1];
-				
+			console.log(arrayData);
+
 			for (var i = 2; i < arrayData.length; i++){
 				arrayData[i][2] = parseInt(arrayData[i][1] + arrayData[i - 1][2]);
 			}
