@@ -772,14 +772,6 @@ function drawWeekTable() {
 	$.get("../api/" + meterID + "/weektable", function(csvString) {
 		// transform the CSV string into a 2-dimensional array
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
-		var totalArray[0] = arrayData[0];
-
-		if (araryData.length > 1){
-			for (var i = 1; i < arrayData.length; i++){
-				totalArray[i] += totalArray[i - 1];
-			}
-		}
-
 
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
