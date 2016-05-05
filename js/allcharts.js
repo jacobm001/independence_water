@@ -691,7 +691,6 @@ function drawDayTable() {
 
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(newArray);
-			data.addColumn: ('string', 'Date');
 		// CAPACITY - En-route ATFM delay - YY - CHART
 		var crt_daytable = new google.visualization.ChartWrapper({
 			chartType: 'Table',
