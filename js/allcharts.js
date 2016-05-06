@@ -903,7 +903,7 @@ function drawMonthTable() {
 
 			for (var i = 2; i < newArray.length; i++){
 				newArray[i][2] = parseInt(newArray[i][2] + newArray[i - 1][2]);
-				newArray[i][3] = parseInt(newArray[i][2] / (i - 1));
+				newArray[i][3] = parseInt(newArray[i][2] / i);
 			}
 		}
 
