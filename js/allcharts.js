@@ -83,14 +83,13 @@ function drawDayChart() {
 
 		var newArray = new Array(arrayData.length);
 		for (var i = 0; i < arrayData.length; i++){
-			newArray[i] = new Array(4);
+			newArray[i] = new Array(3);
 			newArray[i][0] = arrayData[i][0];
 			newArray[i][1] = arrayData[i][1];
 			newArray[i][2] = arrayData[i][1];
 		}
 
 		if (newArray.length > 2){
-			console.log(newArray);
 
 			for (var i = 2; i < newArray.length; i++){
 				newArray[i][2] = parseInt((newArray[i][2] + newArray[i - 1][2]) / (i - 1));
@@ -712,7 +711,6 @@ function drawDayTable() {
 		}
 
 		if (newArray.length > 2){
-			console.log(newArray);
 
 			for (var i = 2; i < newArray.length; i++){
 				newArray[i][2] = parseInt(newArray[i][2] + newArray[i - 1][2]);
@@ -834,7 +832,6 @@ function drawWeekTable() {
 		}
 
 		if (newArray.length > 2){
-			console.log(newArray);
 
 			for (var i = 2; i < newArray.length; i++){
 				newArray[i][2] = parseInt(newArray[i][2] + newArray[i - 1][2]);
@@ -916,8 +913,7 @@ function drawMonthTable() {
 		}
 
 		if (newArray.length > 2){
-			console.log(newArray);
-
+		
 			for (var i = 2; i < newArray.length; i++){
 				newArray[i][2] = parseInt(newArray[i][2] + newArray[i - 1][2]);
 				newArray[i][3] = parseInt(newArray[i][2] / i);
