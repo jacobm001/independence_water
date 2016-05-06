@@ -81,6 +81,8 @@ function drawDayChart() {
 		// transform the CSV string into a 2-dimensional array
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
+		newArray[0][0] = 'Date';
+		newArray[0][1] = 'Daily Use';
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
 		// CAPACITY - En-route ATFM delay - YY - CHART
@@ -215,6 +217,8 @@ function drawWeeklyChart() {
 		// transform the CSV string into a 2-dimensional array
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
+		newArray[0][0] = 'Date';
+		newArray[0][1] = 'Weekly Use';
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
 		// CAPACITY - En-route ATFM delay - YY - CHART
@@ -290,6 +294,8 @@ function drawMonthChart() {
 		// transform the CSV string into an n-dimensional array, where n is the number of columns in the csv
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
+		newArray[0][0] = 'Date';
+		newArray[0][1] = 'Monthly Use';
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
 		// CAPACITY - En-route ATFM delay - YY - CHART
@@ -387,6 +393,8 @@ function drawDayTotalChart() {
 			}
 		}
 
+		newArray[0][0] = 'Date';
+		newArray[0][1] = 'Daily Running Total';
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
 		// CAPACITY - En-route ATFM delay - YY - CHART
@@ -506,6 +514,8 @@ function drawWeekTotalChart() {
 			}
 		}
 
+		newArray[0][0] = 'Date';
+		newArray[0][1] = 'Weekly Running Total';
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
 		// CAPACITY - En-route ATFM delay - YY - CHART
@@ -583,6 +593,8 @@ function drawMonthTotalChart() {
 			}
 		}
 
+		newArray[0][0] = 'Date';
+		newArray[0][1] = 'Monthly Running Total';
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(arrayData);
 		// CAPACITY - En-route ATFM delay - YY - CHART
