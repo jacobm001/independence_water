@@ -669,14 +669,14 @@ function drawDayTable() {
 		['2/29/2016',22,397,745,13.68965517,12.41666667]
 	]);
 */
-	data.addColumn('timestamp', 'Date');
-	data.addColumn('value', 'Daily Use');
-	data.addColumn('value', 'Running Total');
 	$.get("../api/" + meterID + "/daytable", function(csvString) {
 		// transform the CSV string into a 2-dimensional array
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
 		var newArray = new Array(arrayData.length);
+		newArray.addColumn('timestamp', 'Date');
+		newArray.addColumn('value', 'Daily Use');
+		newArray.addColumn('value', 'Running Total');
 		for (var i = 0; i < arrayData.length; i++){
 			newArray[i] = new Array(3);
 			newArray[i][0] = arrayData[i][0];
