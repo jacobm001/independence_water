@@ -236,10 +236,28 @@ function drawWeeklyChart() {
 		// transform the CSV string into a 2-dimensional array
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
-		arrayData[0][0] = 'Date';
-		arrayData[0][1] = 'Weekly Use';
+		var newArray = new Array(arrayData.length);
+		for (var i = 0; i < arrayData.length; i++){
+			newArray[i] = new Array(3);
+			newArray[i][0] = arrayData[i][0];
+			newArray[i][1] = arrayData[i][1];
+			newArray[i][2] = arrayData[i][1];
+			totalArray[i] = arrayData[i][1];
+		}
+
+		if (newArray.length > 2){
+
+			for (var i = 2; i < newArray.length; i++){
+				totalArray[i] = parseInt(totalArray[i] + totalArray[i - 1]);
+				newArray[i][2] = parseInt(totalArray[i] / (i - 1));
+			}
+		}
+
+		newArray[0][0] = 'Date';
+		newArray[0][1] = 'Weekly Use';
+		newArray[0][2] = 'Weekly Running Average';
 		// this new DataTable object holds all the data
-		var data = new google.visualization.arrayToDataTable(arrayData);
+		var data = new google.visualization.arrayToDataTable(newArray);
 		// CAPACITY - En-route ATFM delay - YY - CHART
 		var crt_week = new google.visualization.ChartWrapper({
 			chartType: 'ComboChart',
@@ -313,10 +331,28 @@ function drawMonthChart() {
 		// transform the CSV string into an n-dimensional array, where n is the number of columns in the csv
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
-		arrayData[0][0] = 'Date';
-		arrayData[0][1] = 'Monthly Use';
+		var newArray = new Array(arrayData.length);
+		for (var i = 0; i < arrayData.length; i++){
+			newArray[i] = new Array(3);
+			newArray[i][0] = arrayData[i][0];
+			newArray[i][1] = arrayData[i][1];
+			newArray[i][2] = arrayData[i][1];
+			totalArray[i] = arrayData[i][1];
+		}
+
+		if (newArray.length > 2){
+
+			for (var i = 2; i < newArray.length; i++){
+				totalArray[i] = parseInt(totalArray[i] + totalArray[i - 1]);
+				newArray[i][2] = parseInt(totalArray[i] / (i - 1));
+			}
+		}
+
+		newArray[0][0] = 'Date';
+		newArray[0][1] = 'Monthly Use';
+		newArray[0][1] = 'Monthly Running Average';
 		// this new DataTable object holds all the data
-		var data = new google.visualization.arrayToDataTable(arrayData);
+		var data = new google.visualization.arrayToDataTable(newArray);
 		// CAPACITY - En-route ATFM delay - YY - CHART
 		var crt_month = new google.visualization.ChartWrapper({
 			chartType: 'ComboChart',
