@@ -352,7 +352,7 @@ function drawMonthChart() {
 
 		newArray[0][0] = 'Date';
 		newArray[0][1] = 'Monthly Use';
-		newArray[0][1] = 'Monthly Running Average';
+		newArray[0][2] = 'Monthly Running Average';
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(newArray);
 		// CAPACITY - En-route ATFM delay - YY - CHART
