@@ -81,10 +81,27 @@ function drawDayChart() {
 		// transform the CSV string into a 2-dimensional array
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
-		arrayData[0][0] = 'Date';
-		arrayData[0][1] = 'Daily Use';
+		var newArray = new Array(arrayData.length);
+		for (var i = 0; i < arrayData.length; i++){
+			newArray[i] = new Array(4);
+			newArray[i][0] = arrayData[i][0];
+			newArray[i][1] = arrayData[i][1];
+			newArray[i][2] = arrayData[i][1];
+		}
+
+		if (newArray.length > 2){
+			console.log(newArray);
+
+			for (var i = 2; i < newArray.length; i++){
+				newArray[i][2] = parseInt((newArray[i][2] + newArray[i - 1][2]) / (i - 1));
+			}
+		}
+
+		newArray[0][0] = 'Date';
+		newArray[0][1] = 'Daily Use';
+		newArray[0][2] = 'Running Daily Average';
 		// this new DataTable object holds all the data
-		var data = new google.visualization.arrayToDataTable(arrayData);
+		var data = new google.visualization.arrayToDataTable(newArray);
 		// CAPACITY - En-route ATFM delay - YY - CHART
 		var crt_day = new google.visualization.ChartWrapper({
 			chartType: 'ComboChart',
