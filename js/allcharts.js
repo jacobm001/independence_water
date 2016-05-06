@@ -809,10 +809,11 @@ function drawWeekTable() {
 
 		var newArray = new Array(arrayData.length);
 		for (var i = 0; i < arrayData.length; i++){
-			newArray[i] = new Array(3);
+			newArray[i] = new Array(4);
 			newArray[i][0] = arrayData[i][0];
 			newArray[i][1] = arrayData[i][1];
 			newArray[i][2] = arrayData[i][1];
+			newArray[i][3] = arrayData[i][1];
 		}
 
 		if (newArray.length > 2){
@@ -820,12 +821,14 @@ function drawWeekTable() {
 
 			for (var i = 2; i < newArray.length; i++){
 				newArray[i][2] = parseInt(newArray[i][2] + newArray[i - 1][2]);
+				newArray[i][3] = parseInt(newArray[i][2] / (i - 1));
 			}
 		}
 
 		newArray[0][0] = 'Date';
 		newArray[0][1] = 'Weekly Use';
 		newArray[0][2] = 'Running Total';
+		newArray[0][3] = 'Running Average';
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(newArray);
 		// CAPACITY - En-route ATFM delay - YY - CHART
@@ -888,10 +891,11 @@ function drawMonthTable() {
 
 		var newArray = new Array(arrayData.length);
 		for (var i = 0; i < arrayData.length; i++){
-			newArray[i] = new Array(3);
+			newArray[i] = new Array(4);
 			newArray[i][0] = arrayData[i][0];
 			newArray[i][1] = arrayData[i][1];
 			newArray[i][2] = arrayData[i][1];
+			newArray[i][3] = arrayData[i][1];
 		}
 
 		if (newArray.length > 2){
@@ -899,12 +903,14 @@ function drawMonthTable() {
 
 			for (var i = 2; i < newArray.length; i++){
 				newArray[i][2] = parseInt(newArray[i][2] + newArray[i - 1][2]);
+				newArray[i][3] = parseInt(newArray[i][2] / (i - 1));
 			}
 		}
 
 		newArray[0][0] = 'Date';
 		newArray[0][1] = 'Monthly Use';
 		newArray[0][2] = 'Running Total';
+		newArray[0][3] = 'Running Average';
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(newArray);
 		// CAPACITY - En-route ATFM delay - YY - CHART
