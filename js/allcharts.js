@@ -689,6 +689,7 @@ function drawDayTable() {
 			}
 		}
 
+		newArray[0][0] = 'Date';
 		newArray[0][1] = 'Daily Use';
 		newArray[0][2] = 'Running Total';
 		// this new DataTable object holds all the data
@@ -807,6 +808,9 @@ function drawWeekTable() {
 			}
 		}
 
+		newArray[0][0] = 'Date';
+		newArray[0][1] = 'Weekly Use';
+		newArray[0][2] = 'Running Total';
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(newArray);
 		// CAPACITY - En-route ATFM delay - YY - CHART
@@ -883,6 +887,9 @@ function drawMonthTable() {
 			}
 		}
 
+		newArray[0][0] = 'Date';
+		newArray[0][1] = 'Monthly Use';
+		newArray[0][2] = 'Running Total';
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(newArray);
 		// CAPACITY - En-route ATFM delay - YY - CHART
