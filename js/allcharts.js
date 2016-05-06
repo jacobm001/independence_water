@@ -344,7 +344,7 @@ function drawMonthChart() {
 
 			for (var i = 2; i < newArray.length; i++){
 				totalArray[i] = parseInt(totalArray[i] + totalArray[i - 1]);
-				newArray[i][2] = parseInt(totalArray[i] / (i - 1));
+				newArray[i][2] = parseInt(totalArray[i] / i);
 			}
 		}
 
