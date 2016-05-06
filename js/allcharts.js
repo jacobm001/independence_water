@@ -674,9 +674,6 @@ function drawDayTable() {
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
 		var newArray = new Array(arrayData.length);
-		newArray.addColumn('timestamp', 'Date');
-		newArray.addColumn('value', 'Daily Use');
-		newArray.addColumn('value', 'Running Total');
 		for (var i = 0; i < arrayData.length; i++){
 			newArray[i] = new Array(3);
 			newArray[i][0] = arrayData[i][0];
@@ -692,6 +689,8 @@ function drawDayTable() {
 			}
 		}
 
+		newArray[0][1] = 'Daily Use';
+		newArray[0][2] = 'Running Total';
 		// this new DataTable object holds all the data
 		var data = new google.visualization.arrayToDataTable(newArray);
 		// CAPACITY - En-route ATFM delay - YY - CHART
