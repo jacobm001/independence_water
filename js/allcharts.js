@@ -669,6 +669,9 @@ function drawDayTable() {
 		['2/29/2016',22,397,745,13.68965517,12.41666667]
 	]);
 */
+	data.addColumn('string', 'Date');
+	data.addColumn('number', 'Daily Use');
+	data.addColumn('boolean', 'Running Total');
 	$.get("../api/" + meterID + "/daytable", function(csvString) {
 		// transform the CSV string into a 2-dimensional array
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
