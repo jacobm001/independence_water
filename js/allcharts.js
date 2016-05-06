@@ -236,6 +236,7 @@ function drawWeeklyChart() {
 		// transform the CSV string into a 2-dimensional array
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
+		var totalArray = new Array(arrayData.length);
 		var newArray = new Array(arrayData.length);
 		for (var i = 0; i < arrayData.length; i++){
 			newArray[i] = new Array(3);
@@ -331,6 +332,7 @@ function drawMonthChart() {
 		// transform the CSV string into an n-dimensional array, where n is the number of columns in the csv
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
+		var totalArray = new Array(arrayData.length);
 		var newArray = new Array(arrayData.length);
 		for (var i = 0; i < arrayData.length; i++){
 			newArray[i] = new Array(3);
