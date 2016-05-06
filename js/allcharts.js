@@ -81,18 +81,21 @@ function drawDayChart() {
 		// transform the CSV string into a 2-dimensional array
 		var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
 
+		var totalArray = new Array(arrayData.length);
 		var newArray = new Array(arrayData.length);
 		for (var i = 0; i < arrayData.length; i++){
 			newArray[i] = new Array(3);
 			newArray[i][0] = arrayData[i][0];
 			newArray[i][1] = arrayData[i][1];
 			newArray[i][2] = arrayData[i][1];
+			totalArray[i] = arrayData[i][1];
 		}
 
 		if (newArray.length > 2){
 
 			for (var i = 2; i < newArray.length; i++){
-				newArray[i][2] = parseInt((newArray[i][2] + newArray[i - 1][2]) / (i - 1));
+				totalArray[i] = parseInt(totalArray[i] + newArray[i - 1][2]);
+				newArray[i][2] = parseInt(totalArray[i] / (i - 1));
 			}
 		}
 
