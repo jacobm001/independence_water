@@ -94,7 +94,7 @@ function drawDayChart() {
 		if (newArray.length > 2){
 
 			for (var i = 2; i < newArray.length; i++){
-				totalArray[i] = parseInt(totalArray[i] + newArray[i - 1][2]);
+				totalArray[i] = parseInt(totalArray[i] + totalArray[i - 1][2]);
 				newArray[i][2] = parseInt(totalArray[i] / (i - 1));
 			}
 		}
