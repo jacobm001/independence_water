@@ -59,7 +59,7 @@ session_start();//session starts here
 
 <?php
 
-include("database/db_conection.php");
+//include("database/db_conection.php");
 
 if(isset($_POST['login']))
 {
