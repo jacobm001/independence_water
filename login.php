@@ -6,7 +6,11 @@ session_start();//session starts here
 <html>
 <head lang="en">
 	<meta charset="UTF-8">
-	<link type="text/css" rel="stylesheet" href="bootstrap\css\bootstrap.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	<script src="jquery/jquery-2.2.0.js"></script>
+	<script src="jquery/jquery.csv.js"></script>
+	<script src="bootstrap/js/bootstrap.js"></script>
 	<title>Login</title>
 </head>
 <style>
