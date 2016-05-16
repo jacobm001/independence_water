@@ -6,7 +6,7 @@ function validate(){
 	
 	if ( username == "Formget" && password == "formget#123"){
 		alert ("Login successfully");
-		window.location = "success.html"; // Redirecting to other page.
+		window.location = "/index.html"; // Redirecting to other page.
 		return false;
 	}
 	else{
