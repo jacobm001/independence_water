@@ -82,11 +82,13 @@ if(isset($_POST['login']))
 	{
 		echo "<script>alert('username or password is incorrect!')</script>";
 	}
-*/
-	if($.get("../api/" + $user_username + $user_pass))
+*/	
+	$user_pass_valid = $.get("../api/" + $user_username + $user_pass);
+	
+	if($user_pass_valid = true)
 	{
 		echo "<script>window.open('index.html','_self')</script>";
-
+;
 		$_SESSION['username']=$user_username;//here session is used and value of $user_username store in $_SESSION.
 
 	}
