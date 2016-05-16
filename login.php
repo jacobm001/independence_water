@@ -58,12 +58,12 @@ session_start();//session starts here
 </html>
 
 <?php
-/*
+
 include("database/db_conection.php");
 
 if(isset($_POST['login']))
 {
-*/
+
 	$user_username=$_POST['username'];
 	$user_pass=$_POST['pass'];
 /*
@@ -94,5 +94,5 @@ if(isset($_POST['login']))
 	{
 		echo "<script>alert('username or password is incorrect!')</script>";
 	}
-//}
+}
 ?>
