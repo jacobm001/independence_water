@@ -59,7 +59,7 @@ session_start();//session starts here
 
 <?php
 
-include("database/db_conection.php");
+//include("database/db_conection.php");
 
 if(isset($_POST['login']))
 {
@@ -83,14 +83,14 @@ if(isset($_POST['login']))
 		echo "<script>alert('username or password is incorrect!')</script>";
 	}
 */
-	if($.get("../api/" + $user_username + $user_pass))
+//	if($.get("../api/" + $user_username + $user_pass))
 	{
 		echo "<script>window.open('index.html','_self')</script>";
 
 		$_SESSION['username']=$user_username;//here session is used and value of $user_username store in $_SESSION.
 
 	}
-	else
+//	else
 	{
 		echo "<script>alert('username or password is incorrect!')</script>";
 	}
