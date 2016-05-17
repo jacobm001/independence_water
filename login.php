@@ -14,11 +14,6 @@ session_start();//session starts here
 	<script src="bootstrap/js/bootstrap.js"></script>
 	<title>Login - Abzu: Water Visualization</title>
 </head>
-<style>
-	.login-panel {
-		margin-top: 150px;
-
-</style>
 
 <body>
 
@@ -26,20 +21,20 @@ session_start();//session starts here
 <div class="container">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">
-			<div class="login-panel panel panel-primary">
+			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="panel-title">Please sign in to Abzu</h3>
 				</div>
 				<div class="panel-body">
 					<form role="form" method="post" action="login.php">
-						<!--<fieldset>-->
+						<fieldset>
 							<div class="form-group has-feedback has-feedback-left">
-								<!--<label class="control-label">Username</label>-->
+								<label class="control-label">Username</label>
 								<input class="form-control" placeholder="Username" name="username" type="text" autofocus>
 								<i class="glyphicon glyphicon-user form-control-feedback"></i>
 							</div>
 							<div class="form-group has-feedback has-feedback-left">
-								<!--<label class="control-label">Password</label>-->
+								<label class="control-label">Password</label>
 								<input class="form-control" placeholder="Password" name="pass" type="password" value="">
 								<i class="glyphicon glyphicon-lock form-control-feedback"></i>
 							</div>
@@ -49,7 +44,7 @@ session_start();//session starts here
 
 							<!-- Change this to a button or input when using this as a form -->
 						  <!--  <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a> -->
-						<!--</fieldset>-->
+						</fieldset>
 					</form>
 				</div>
 			</div>
