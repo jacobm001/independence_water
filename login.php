@@ -33,11 +33,11 @@ session_start();//session starts here
 				<div class="panel-body">
 					<form role="form" method="post" action="login.php">
 						<fieldset>
-							<div class="form-group has-feedback-left">
+							<div class="form-group has-feedback has-feedback-left">
 								<input class="form-control" placeholder="Username" name="username" type="text" autofocus>
 								<i class="glyphicon glyphicon-user form-control-feedback"></i>
 							</div>
-							<div class="form-group has-feedback-left">
+							<div class="form-group has-feedback has-feedback-left">
 								<input class="form-control" placeholder="Password" name="pass" type="password" value="">
 								<i class="glyphicon glyphicon-key form-control-feedback"></i>
 							</div>
