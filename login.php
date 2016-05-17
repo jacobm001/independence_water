@@ -14,6 +14,11 @@ session_start();//session starts here
 	<script src="bootstrap/js/bootstrap.js"></script>
 	<title>Login - Abzu: Water Visualization</title>
 </head>
+<style>
+	.login-panel {
+		margin-top: 150px;
+
+</style>
 
 <body>
 
@@ -21,7 +26,7 @@ session_start();//session starts here
 <div class="container">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">
-			<div class="panel panel-primary">
+			<div class="login-panel panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="panel-title">Please sign in to Abzu</h3>
 				</div>
