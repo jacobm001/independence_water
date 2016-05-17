@@ -68,9 +68,11 @@ session_start();//session starts here
 
 if(isset($_POST['login']))
 {
-	private $AbzuDB;
-
-	$this->AbzuDB = $AbzuDB;
+	include 'api/Init.php';
+	include 'api/DataImporter.php';
+	include 'api/AbzuDB.php';
+	
+	$AbzuDB = new AbzuDB($db);
 
 	$user_username=$_POST['username'];
 	$user_pass=$_POST['pass'];
@@ -91,7 +93,8 @@ if(isset($_POST['login']))
 		echo "<script>alert('username or password is incorrect!')</script>";
 	}
 */	
-	$user_pass_valid = $this->AbzuDB->check_credentials($user_username, $user_pass);
+	$user_pass_valid = $AbzuDB->check_credentials($user_username, $user_pass);
+	
 	echo $user_pass_valid;
 
 	if($user_pass_valid = true)
