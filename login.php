@@ -8,10 +8,11 @@ session_start();//session starts here
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	<link href="/css/signin.css" rel="stylesheet">
 	<script src="jquery/jquery-2.2.0.js"></script>
 	<script src="jquery/jquery.csv.js"></script>
 	<script src="bootstrap/js/bootstrap.js"></script>
-	<title>Login</title>
+	<title>Login - Abzu: Water Visualization</title>
 </head>
 <style>
 	.login-panel {
@@ -27,7 +28,7 @@ session_start();//session starts here
 		<div class="col-md-4 col-md-offset-4">
 			<div class="login-panel panel panel-primary">
 				<div class="panel-heading">
-					<h3 class="panel-title">Sign In</h3>
+					<h3 class="panel-title">Please sign in to Abzu</h3>
 				</div>
 				<div class="panel-body">
 					<form role="form" method="post" action="login.php">
