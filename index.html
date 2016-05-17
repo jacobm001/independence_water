@@ -93,12 +93,19 @@
 							<div class="tab-content">
 								<div id="home" class="tab-pane fade in active">
 									<div class="panel panel-primary">
-										<div id="announcements" class="tab-pane fade in active">
+										<div id="ad-pan" class="tab-pane fade in active">
 											<div class="panel-heading">
-												Announcements
+												Administrator Panel
 											</div>
 											<div class="panel-body">
-												This is a sample announcement.
+												<form class="well" action="php/upload.php" method="post" enctype="multipart/form-data">
+													<div class="form-group">
+														<label for="file">Select a file to upload</label>
+														<input type="file" name="file">
+														<p class="help-block">Only files with .txt and no file extensions are allowed.</p>
+													</div>
+													<input type="submit" class="btn btn-lg btn-primary" value="Upload">
+												</form>
 											</div>
 										</div>
 									</div>
