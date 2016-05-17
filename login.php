@@ -83,7 +83,7 @@ if(isset($_POST['login']))
 		echo "<script>alert('username or password is incorrect!')</script>";
 	}
 */	
-	$user_pass_valid = $.get("../api/" + $user_username + $user_pass);
+//	$user_pass_valid = $.get("../api/" + $user_username + $user_pass);
 	
 	if($user_pass_valid = true)
 	{
