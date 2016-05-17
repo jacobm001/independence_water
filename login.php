@@ -92,7 +92,7 @@ if(isset($_POST['login']))
 	
 	if($user_pass_valid = true)
 	{
-		echo "<script>window.open('index.html','_self')</script>";
+		echo "<script>window.open('/index.html','_self')</script>";
 		$_SESSION['username']=$user_username;//here session is used and value of $user_username store in $_SESSION.
 
 	}
