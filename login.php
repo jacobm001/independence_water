@@ -68,6 +68,9 @@ session_start();//session starts here
 
 if(isset($_POST['login']))
 {
+	private $AbzuDB;
+
+	$this->AbzuDB = $AbzuDB;
 
 	$user_username=$_POST['username'];
 	$user_pass=$_POST['pass'];
@@ -90,7 +93,7 @@ if(isset($_POST['login']))
 */	
 	$user_pass_valid = $this->AbzuDB->check_credentials($user_username, $user_pass);
 	echo $user_pass_valid;
-	
+
 	if($user_pass_valid = true)
 	{
 		echo "<script>window.open('index.html','_self')</script>";
