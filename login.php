@@ -7,10 +7,10 @@ session_start();//session starts here
 <head lang="en">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 	<link href="/css/signin.css" rel="stylesheet">
-	<script src="jquery/jquery-2.2.0.min.js"></script>
-	<script src="jquery/jquery.csv.min.js"></script>
+	<script src="jquery/jquery-2.2.0.js"></script>
+	<script src="jquery/jquery.csv.js"></script>
 	<script src="bootstrap/js/bootstrap.js"></script>
 	<title>Login - Abzu: Water Visualization</title>
 </head>
