@@ -7,7 +7,7 @@ session_start();//session starts here
 <head lang="en">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="bootstrap/css/bootstrap-min.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 	<link href="/css/signin.css" rel="stylesheet">
 	<script src="jquery/jquery-2.2.0.js"></script>
 	<script src="jquery/jquery.csv.js"></script>
@@ -17,7 +17,7 @@ session_start();//session starts here
 <style>
 	.login-panel {
 		margin-top: 150px;
-
+	}
 </style>
 
 <body>
