@@ -89,6 +89,7 @@ if(isset($_POST['login']))
 	}
 */	
 	$user_pass_valid = $this->AbzuDB->check_credentials($user_username, $user_pass);
+	echo $user_pass_valid;
 	
 	if($user_pass_valid = true)
 	{
