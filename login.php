@@ -35,13 +35,13 @@ session_start();//session starts here
 						<fieldset>
 							<div class="form-group has-feedback has-feedback-left">
 								<label class="control-label">Username</label>
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user form-control-feedback"></i></span>
 								<input class="form-control" placeholder="Username" name="username" type="text" autofocus>
-								<i class="glyphicon glyphicon-user form-control-feedback"></i>
 							</div>
 							<div class="form-group has-feedback has-feedback-left">
 								<label class="control-label">Password</label>
+								<span class="input-group-addon"><i class="glyphicon glyphicon-lock form-control-feedback"></i></span>
 								<input class="form-control" placeholder="Password" name="pass" type="password" value="">
-								<i class="glyphicon glyphicon-lock form-control-feedback"></i>
 							</div>
 
 
