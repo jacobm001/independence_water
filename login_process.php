@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	private $AbzuDB;
+	require_once '/api/AbzuDB.php';
 
 	public function __construct(&$AbzuDB)
 	{
@@ -20,8 +21,8 @@
 		//	$stmt->execute(array(":email"=>$user_name));
 		//	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		//	$count = $stmt->rowCount();
-			echo $this->$AbzuDB->check_credentials($user_name, $user_password);
-			if($this->$AbzuDB->check_credentials($user_name, $user_password)==true){
+			echo $db->check_credentials($user_name, $user_password);
+			if($db->check_credentials($user_name, $user_password)==true){
 				echo "ok"; // log in
 			//	$_SESSION['user_session'] = $row['username'];
 			}
