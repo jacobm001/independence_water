@@ -1,9 +1,9 @@
 <?php
 	session_start();
+	require_once 'api/AbzuDB.php';
 	$db = new PDO("sqlite:storage/data.db");
-	$AbzuDB = new $AbzuDB($db);
+	$AbzuDB = new AbzuDB($db);
 	var_dump($AbzuDB);
-//	require_once 'api/AbzuDB.php';
 
 	if(isset($_POST['btn-login']))
 	{
