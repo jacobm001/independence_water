@@ -24,7 +24,7 @@
 		//	echo $AbzuDB->check_credentials($user_name, $user_password);
 			if($AbzuDB->check_credentials($user_name, $user_password) == 'True'){
 				echo "ok"; // log in
-			//	$_SESSION['user_session'] = $row['username'];
+				$_SESSION['user_session'] = $user_name;
 			}
 			else{
 				echo "Username or password does not exist."; // wrong details 
