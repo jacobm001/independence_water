@@ -33,9 +33,9 @@ $('document').ready(function()
 			password: {
 				required: true,
 			},
-			user_email: {
+			user_username: {
 				required: true,
-				email: true
+				username: true
 			},
 		},
 			messages:
@@ -43,7 +43,7 @@ $('document').ready(function()
 			password:{
 					  required: "please enter your password"
 			},
-			user_email: "please enter your email address",
+			user_name: "please enter your username address",
 		},
 		submitHandler: submitForm 
 	});  
