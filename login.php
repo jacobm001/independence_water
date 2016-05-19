@@ -40,7 +40,7 @@ session_start();//session starts here
 							</div>
 							<div class="form-group has-feedback has-feedback-left">
 								<label class="control-label">Password</label>
-								<span class="input-group-addon"><i class="glyphicon glyphicon-lock form-control-feedback"></i></span>
+								<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 								<input class="form-control" placeholder="Password" name="pass" type="password" value="">
 							</div>
 
