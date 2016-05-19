@@ -6,10 +6,10 @@
 		<link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.css">
 		<link href="/css/signin.css" rel="stylesheet">
-		<script src="/jquery/jquery-2.2.0.js"></script>
-		<script src="/jquery	/jquery.csv.js"></script>
-		<script src="/bootstrap/js/bootstrap.js"></script>
-		<script src="/js/login.js"></script>
+		<script type="text/javascript" src="/jquery/jquery-2.2.0.js"></script>
+		<script type="text/javascript" src="/jquery/jquery.csv.js"></script>
+		<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="/js/login.js"></script>
 		<title>Login - Abzu: Water Visualization</title>
 	</head>
 	<style>
@@ -31,16 +31,16 @@
 					<div class="form-group">
 						<label class="control-label">Username</label>
 						<div class="input-group">
-							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-							<input type="text" class="form-control" placeholder="Username" name="username" id="username" />
+						<!--	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						-->	<input type="text" class="form-control" placeholder="Username" name="username" id="username" />
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="control-label">Password</label>
 						<div class="input-group">
-							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-							<input type="password" class="form-control" placeholder="Password" name="password" id="password" />
+						<!--	<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+						-->	<input type="password" class="form-control" placeholder="Password" name="password" id="password" />
 						</div>
 					</div>
 
