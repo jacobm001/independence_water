@@ -70,7 +70,7 @@
 					echo $this->AbzuDB->get_city_avg_data($params[0], "month");
 				}
 				if ($params[1] == "login"){
-					echo $this->AbzuDB->check_credentials($params[0], $params[1]);
+					echo $this->AbzuDB->check_credentials($params[0], $params[2]);
 				}
 			// } else {
 			// 	echo "Invalid route";
