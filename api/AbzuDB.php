@@ -214,10 +214,8 @@
 			$result = $stmt->fetch(PDO::FETCH_ASSOC);
 			if( $result->rowCount() == 0 )
 				echo 'False';
-			else {
-				$_SESSION['user_session'] = $row['username'];
+			else
 				echo 'True';
-			}
 		}
 	}
 ?>
