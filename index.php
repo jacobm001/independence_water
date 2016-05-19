@@ -3,14 +3,14 @@
 	<head lang="en">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.css">
-		<link href="/css/signin.css" rel="stylesheet">
-		<script type="text/javascript" src="/jquery/jquery-2.2.0.js"></script>
-		<script type="text/javascript" src="/jquery/jquery.csv.js"></script>
-		<script type="text/javascript" src="/jquery-validation/jquery.validate.js"></script>
-		<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
-		<script type="text/javascript" src="/js/login.js"></script>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
+		<link rel="stylesheet" href="css/signin.css">
+		<script type="text/javascript" src="jquery/jquery-2.2.0.js"></script>
+		<script type="text/javascript" src="jquery/jquery.csv.js"></script>
+		<script type="text/javascript" src="jquery-validation/jquery.validate.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/login.js"></script>
 		<title>Login - Abzu: Water Visualization</title>
 	</head>
 	<style>
