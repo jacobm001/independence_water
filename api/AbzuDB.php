@@ -213,11 +213,9 @@
 
 			$result = $stmt->fetch(PDO::FETCH_ASSOC);
 			if( $result == 0 ) {
-				echo $result;
 				return 'False';
 			}
 			else {
-				echo $result;
 				return 'True';
 			}
 		}
