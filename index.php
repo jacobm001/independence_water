@@ -31,16 +31,16 @@
 					<div class="form-group">
 						<label class="control-label">Username</label>
 						<div class="input-group">
-						<!--	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-						-->	<input type="text" class="form-control" placeholder="Username" name="username" id="username" />
+							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							<input type="text" class="form-control" placeholder="Username" name="username" id="username" />
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="control-label">Password</label>
 						<div class="input-group">
-						<!--	<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-						-->	<input type="password" class="form-control" placeholder="Password" name="password" id="password" />
+							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+							<input type="password" class="form-control" placeholder="Password" name="password" id="password" />
 						</div>
 					</div>
 
