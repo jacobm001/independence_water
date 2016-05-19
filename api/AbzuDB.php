@@ -212,7 +212,7 @@
 			$stmt->execute();
 
 			$result = $stmt->fetch(PDO::FETCH_ASSOC);
-			if( $result->rowCount() == 0 )
+			if( $result == 0 )
 				echo 'False';
 			else
 				echo 'True';
