@@ -33,7 +33,7 @@ session_start();//session starts here
 				<div class="panel-body">
 					<form role="form" method="post" action="login.php">
 						<fieldset>
-							<div class="form-group">
+							<div class="input-group">
 								<label class="control-label">Username</label>
 								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 								<input class="form-control" placeholder="Username" name="username" type="text" autofocus>
