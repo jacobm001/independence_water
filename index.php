@@ -8,6 +8,7 @@
 		<link href="/css/signin.css" rel="stylesheet">
 		<script type="text/javascript" src="/jquery/jquery-2.2.0.js"></script>
 		<script type="text/javascript" src="/jquery/jquery.csv.js"></script>
+		<script type="text/javascript" src="/jquery-validation/jquery.validate.js"></script>
 		<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
 		<script type="text/javascript" src="/js/login.js"></script>
 		<title>Login - Abzu: Water Visualization</title>
