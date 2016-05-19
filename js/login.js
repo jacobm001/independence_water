@@ -73,7 +73,7 @@ $('document').ready(function()
 						$("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; '+response+' !</div>');
 						$("#btn-login").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In');
 					}
-				});
+				);}
 			}
 		});
 	}
