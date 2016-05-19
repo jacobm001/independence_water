@@ -22,7 +22,7 @@
 	<body>
 		<div class="signin-form">
 			<div class="container">
-				<form class="form-signin" method="post" id="login-form">
+				<form class="form-signin" method="post" name="loginform" id="login-form">
 					<h2 class="form-signin-heading">Log In to Abzu</h2><hr />
 
 					<div id="error">

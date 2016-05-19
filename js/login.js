@@ -81,3 +81,16 @@ $('document').ready(function()
 	}
 }
 );
+/*
+$.get("/api/login/" + data[0] + "/" + data[1], function(loginResponse) {
+	if(loginResponse==true){
+		echo "ok"; // log in
+		$_SESSION['user_session'] = $row['username'];
+	}
+	else{
+		echo "Username or password does not exist."; // wrong details 
+	}
+});
+var un = document.loginform.username.value;
+var pw = document.loginform.pword.value;
+*/

@@ -216,6 +216,9 @@
 				echo 'False';
 			else
 				echo 'True';
+			catch(PDOException $e){
+				echo $e->getMessage();
+			}
 		}
 	}
 ?>
