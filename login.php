@@ -33,9 +33,9 @@ session_start();//session starts here
 				<div class="panel-body">
 					<form role="form" method="post" action="login.php">
 						<fieldset>
-							<div class="form-group has-feedback has-feedback-left">
+							<div class="form-group">
 								<label class="control-label">Username</label>
-								<span class="input-group-addon"><i class="glyphicon glyphicon-user form-control-feedback"></i></span>
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 								<input class="form-control" placeholder="Username" name="username" type="text" autofocus>
 							</div>
 							<div class="form-group has-feedback has-feedback-left">
