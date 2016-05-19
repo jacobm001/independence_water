@@ -1,13 +1,10 @@
 <?php
 	session_start();
-//	private $AbzuDB;
-	require_once 'api/AbzuDB.php';
-/*
-	public function __construct(&$AbzuDB)
-	{
-		$this->AbzuDB = $AbzuDB;
-	}
-*/
+	$db = new PDO("sqlite:storage/data.db");
+	$AbzuDB = new $AbzuDB($db);
+	var_dump($AbzuDB);
+//	require_once 'api/AbzuDB.php';
+
 	if(isset($_POST['btn-login']))
 	{
 		$user_name = trim($_POST['username']);
@@ -21,8 +18,8 @@
 		//	$stmt->execute(array(":email"=>$user_name));
 		//	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		//	$count = $stmt->rowCount();
-			echo $AbzuDB.db->check_credentials($user_name, $user_password);
-			if($AbzuDB.db->check_credentials($user_name, $user_password)==true){
+			echo $AbzuDB->check_credentials($user_name, $user_password);
+			if($AbzuDB->check_credentials($user_name, $user_password)==true){
 				echo "ok"; // log in
 			//	$_SESSION['user_session'] = $row['username'];
 			}
