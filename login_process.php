@@ -13,7 +13,7 @@
 		var_dump($user_name);
 		var_dump($user_password);
 
-		$password = md5($user_password);
+	//	$password = md5($user_password);
 		
 		try
 		{ 
@@ -22,7 +22,7 @@
 		//	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		//	$count = $stmt->rowCount();
 			echo $AbzuDB->check_credentials($user_name, $user_password);
-			if($AbzuDB->check_credentials($user_name, $user_password) == 1){
+			if($AbzuDB->check_credentials($user_name, $user_password) == 'True'){
 				echo "ok"; // log in
 			//	$_SESSION['user_session'] = $row['username'];
 			}
