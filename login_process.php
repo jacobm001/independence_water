@@ -10,8 +10,8 @@
 		$user_name = trim($_POST['username']);
 		$user_password = trim($_POST['password']);
 		
-		var_dump($user_name);
-		var_dump($user_password);
+	//	var_dump($user_name);
+	//	var_dump($user_password);
 
 	//	$password = md5($user_password);
 		
