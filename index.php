@@ -57,3 +57,8 @@
 		</div>
 	</body>
 </html>
+<?php 
+	catch(PDOException $e){
+		echo $e->getMessage();
+	}
+?>

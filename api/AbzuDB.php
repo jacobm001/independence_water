@@ -212,10 +212,12 @@
 			$stmt->execute();
 
 			$result = $stmt->fetch(PDO::FETCH_ASSOC);
-			if( $result == 0 )
+			if( $result == 0 ) {
 				echo 'False';
-			else
+			}
+			else {
 				echo 'True';
+			}
 			catch(PDOException $e){
 				echo $e->getMessage();
 			}
