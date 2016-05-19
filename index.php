@@ -41,8 +41,8 @@
 						<label class="control-label">Password</label>
 						<div class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-						</div>
 							<input type="password" class="form-control" placeholder="Password" name="password" id="password" />
+						</div>
 					</div>
 
 					<hr />
