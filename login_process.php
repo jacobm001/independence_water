@@ -21,8 +21,8 @@
 		//	$stmt->execute(array(":email"=>$user_name));
 		//	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		//	$count = $stmt->rowCount();
-			echo $db->check_credentials($user_name, $user_password);
-			if($db->check_credentials($user_name, $user_password)==true){
+			echo $AbzuDB.db->check_credentials($user_name, $user_password);
+			if($AbzuDB.db->check_credentials($user_name, $user_password)==true){
 				echo "ok"; // log in
 			//	$_SESSION['user_session'] = $row['username'];
 			}
