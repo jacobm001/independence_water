@@ -1,4 +1,4 @@
-var attempt = 3; // Variable to count number of attempts.
+/*var attempt = 3; // Variable to count number of attempts.
 // Below function Executes on click of login button.
 function validate(){
 	var username = document.getElementById("username").value;
@@ -21,7 +21,7 @@ function validate(){
 		}
 	}
 }
-
+*/
 $('document').ready(function()
 { 
 	/* validation */
@@ -73,9 +73,8 @@ $('document').ready(function()
 						$("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; '+response+' !</div>');
 						$("#btn-login").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In');
 					}
-				);}
+				}
 			}
 		});
 	}
 }
-);
