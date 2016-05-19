@@ -213,10 +213,10 @@
 
 			$result = $stmt->fetch(PDO::FETCH_ASSOC);
 			if( $result == 0 ) {
-				echo 'False';
+				return 'False';
 			}
 			else {
-				echo 'True';
+				return 'True';
 			}
 		}
 	}

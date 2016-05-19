@@ -3,7 +3,7 @@
 	require_once 'api/AbzuDB.php';
 	$db = new PDO("sqlite:storage/data.db");
 	$AbzuDB = new AbzuDB($db);
-	var_dump($AbzuDB);
+//	var_dump($AbzuDB);
 
 	if(isset($_POST['btn-login']))
 	{
@@ -18,8 +18,8 @@
 		//	$stmt->execute(array(":email"=>$user_name));
 		//	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		//	$count = $stmt->rowCount();
-			echo $AbzuDB->check_credentials($user_name, $user_password);
-			if($AbzuDB->check_credentials($user_name, $user_password)==true){
+		//	echo $AbzuDB->check_credentials($user_name, $user_password);
+			if($AbzuDB->check_credentials($user_name, $user_password)=='True'){
 				echo "ok"; // log in
 			//	$_SESSION['user_session'] = $row['username'];
 			}
