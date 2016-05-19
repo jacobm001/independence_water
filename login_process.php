@@ -15,7 +15,7 @@
 		//	$stmt->execute(array(":email"=>$user_name));
 		//	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		//	$count = $stmt->rowCount();
-			
+			echo check_credentials($user_name, $user_password);
 			if(check_credentials($user_name, $user_password)==true){
 				echo "ok"; // log in
 			//	$_SESSION['user_session'] = $row['username'];
