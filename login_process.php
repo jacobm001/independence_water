@@ -1,13 +1,13 @@
 <?php
 	session_start();
-	private $AbzuDB;
+//	private $AbzuDB;
 	require_once '/api/AbzuDB.php';
-
+/*
 	public function __construct(&$AbzuDB)
 	{
 		$this->AbzuDB = $AbzuDB;
 	}
-
+*/
 	if(isset($_POST['btn-login']))
 	{
 		$user_name = trim($_POST['username']);

@@ -1,7 +1,7 @@
 <?php
 	class AbzuDB
 	{
-		public $db;
+		private $db;
 		
 		private $qry_meter_ids;
 		private $qry_meter_read_sm;
