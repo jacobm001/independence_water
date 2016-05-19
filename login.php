@@ -47,9 +47,7 @@ session_start();//session starts here
 									<input class="form-control" placeholder="Password" name="pass" type="password" value="">
 								</div>
 							</div>
-
-
-								<input class="btn btn-lg btn-primary btn-block" type="submit" value="Login" name="login" >
+							<input class="btn btn-lg btn-primary btn-block" type="submit" value="Login" name="login" >
 
 							<!-- Change this to a button or input when using this as a form -->
 						  <!--  <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a> -->
