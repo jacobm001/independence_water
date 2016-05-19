@@ -1,9 +1,5 @@
 <?php
 	session_start();
-	include '/api/Init.php';
-	include '/api/DataImporter.php';
-	include '/api/AbzuDB.php';
-	
 	private $AbzuDB;
 
 	public function __construct(&$AbzuDB)
