@@ -4,7 +4,12 @@
 	include '/api/DataImporter.php';
 	include '/api/AbzuDB.php';
 	
-	$AbzuDB = new AbzuDB($db);
+	private $AbzuDB;
+
+	public function __construct(&$AbzuDB)
+	{
+		$this->AbzuDB = $AbzuDB;
+	}
 
 	if(isset($_POST['btn-login']))
 	{
@@ -19,8 +24,8 @@
 		//	$stmt->execute(array(":email"=>$user_name));
 		//	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		//	$count = $stmt->rowCount();
-			echo $AbzuDB->check_credentials($user_name, $user_password);
-			if($AbzuDB->check_credentials($user_name, $user_password)==true){
+			echo $this->$AbzuDB->check_credentials($user_name, $user_password);
+			if($this->$AbzuDB->check_credentials($user_name, $user_password)==true){
 				echo "ok"; // log in
 			//	$_SESSION['user_session'] = $row['username'];
 			}
