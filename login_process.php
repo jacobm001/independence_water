@@ -1,7 +1,7 @@
 <?php
 	session_start();
 //	private $AbzuDB;
-	require_once '/api/AbzuDB.php';
+	require_once 'api/AbzuDB.php';
 /*
 	public function __construct(&$AbzuDB)
 	{
