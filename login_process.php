@@ -7,8 +7,8 @@
 
 	if(isset($_POST['btn-login']))
 	{
-		$user_name = trim($_POST['username']);
-		$user_password = trim($_POST['password']);
+		$user_name = ($_POST['username']);
+		$user_password = ($_POST['password']);
 		
 	//	var_dump($user_name);
 	//	var_dump($user_password);
@@ -21,7 +21,7 @@
 		//	$stmt->execute(array(":email"=>$user_name));
 		//	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		//	$count = $stmt->rowCount();
-			echo $AbzuDB->check_credentials($user_name, $user_password);
+		//	echo $AbzuDB->check_credentials($user_name, $user_password);
 			if($AbzuDB->check_credentials($user_name, $user_password) == 'True'){
 				echo "ok"; // log in
 				$_SESSION['user_session'] = $user_name;
