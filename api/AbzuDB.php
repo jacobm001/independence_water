@@ -25,16 +25,16 @@
 		{
 			$this->db = $db;
 
-			$this->qry_meter_ids        = file_get_contents("../api/queries/get_meter_ids.sql");
-			$this->qry_meter_read_sm    = file_get_contents("../api/queries/get_meter_read_sm.sql");
-			$this->qry_meter_read_lg    = file_get_contents("../api/queries/get_meter_read_lg.sql");
-			$this->qry_meter_insert     = file_get_contents("../api/queries/insert_meter_data.sql");
-			$this->qry_city_avg_sm      = file_get_contents("../api/queries/get_city_avg_sm.sql");
-			$this->qry_city_avg_lg      = file_get_contents("../api/queries/get_city_avg_lg.sql");
-			$this->qry_guage_to_date_sm = file_get_contents("../api/queries/get_gauge_to_date_sm.sql");
-			$this->qry_guage_to_date_lg = file_get_contents("../api/queries/get_gauge_to_date_lg.sql");
-			$this->qry_get_day_avg      = file_get_contents("../api/queries/get_day_average.sql");
-			$this->qry_check_user_cred  = file_get_contents("../api/queries/check_user_credentials.sql");
+			$this->qry_meter_ids        = file_get_contents("/var/www/html/api/queries/get_meter_ids.sql");
+			$this->qry_meter_read_sm    = file_get_contents("/var/www/html/api/queries/get_meter_read_sm.sql");
+			$this->qry_meter_read_lg    = file_get_contents("/var/www/html/api/queries/get_meter_read_lg.sql");
+			$this->qry_meter_insert     = file_get_contents("/var/www/html/api/queries/insert_meter_data.sql");
+			$this->qry_city_avg_sm      = file_get_contents("/var/www/html/api/queries/get_city_avg_sm.sql");
+			$this->qry_city_avg_lg      = file_get_contents("/var/www/html/api/queries/get_city_avg_lg.sql");
+			$this->qry_guage_to_date_sm = file_get_contents("/var/www/html/api/queries/get_gauge_to_date_sm.sql");
+			$this->qry_guage_to_date_lg = file_get_contents("/var/www/html/api/queries/get_gauge_to_date_lg.sql");
+			$this->qry_get_day_avg      = file_get_contents("/var/www/html/api/queries/get_day_average.sql");
+			$this->qry_check_user_cred  = file_get_contents("/var/www/html/api/queries/check_user_credentials.sql");
 		}
 
 		private function validate_interval($interval)
