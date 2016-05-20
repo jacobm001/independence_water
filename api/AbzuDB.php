@@ -211,12 +211,12 @@
 			$stmt->bindParam(':password', $pass);
 			$stmt->execute();
 
-			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+			$result = $stmt->fetchColumn();
 			if( $result == 0 ) {
-				return 'False';
+				return 0;
 			}
 			else {
-				return 'True';
+				return 1;
 			}
 		}
 	}

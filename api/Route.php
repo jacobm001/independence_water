@@ -71,6 +71,8 @@
 				}
 				if ($params[0] == "login"){
 					echo $this->AbzuDB->check_credentials($params[1], $params[2]);
+					var_dump($params[1]);
+					var_dump($params[2]);
 				}
 			// } else {
 			// 	echo "Invalid route";
