@@ -213,10 +213,10 @@
 
 			$result = $stmt->fetchColumn();
 			if( $result == 0 ) {
-				return 0;
+				return 'False';
 			}
 			else {
-				return 1;
+				return 'True';
 			}
 		}
 	}
