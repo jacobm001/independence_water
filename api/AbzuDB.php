@@ -211,7 +211,7 @@
 			$stmt->bindParam(':password', $pass);
 			$stmt->execute();
 
-			$result = $stmt->fetchColumn();
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
 			if( $result == 0 ) {
 				return 'False';
 			}
